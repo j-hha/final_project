@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="CoffeeApp">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +9,13 @@
     integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
     crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+    <script src="js/app.js" charset="utf-8"></script>
     <link rel="stylesheet" href="/css/main.css">
   </head>
-  <body>
+  <body ng-controller="mainCtrl as ctrl">
     <nav>
-      <h1>Page Title</h1>
+      <h1>{{ctrl.title}}</h1>
       <div class="">
         <span>
             <i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i>
