@@ -1,0 +1,170 @@
+/*import library for font-awesome icons*/
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+/*import fonts*/
+@import url('https://fonts.googleapis.com/css?family=Lato:300|Plaster');
+
+
+* {
+  box-sizing: border-box;
+  /*border: 1px dotted black;*/
+}
+
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: #43A5CF;
+  transition-duration: .4s;
+}
+
+a:active {
+  color: #215267;
+}
+
+
+nav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 10vh;
+  background-color: rgba(255,255,255,.9);
+  z-index: 1;
+}
+
+nav:hover {
+  box-shadow: 0 0 5px rgba(0,0,0,.1);
+  transition-duration: .4s;
+  background-color: white;
+}
+
+nav div {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-content: center;
+  text-align: center;
+  padding: 1vh 1vw;
+}
+
+nav div span {
+  display: block;
+  padding: 0 1vw;
+}
+
+nav div span:hover {
+  color: #43A5CF;
+  transition-duration: .4s;
+}
+
+/*single view styles*/
+
+.single-article {
+  height: 100vh;
+  padding: 2.5vh 2.5vw;
+}
+
+#welcome {
+  background-image: url('../img/coffee-bw.jpg');
+  /*img source: https://pixabay.com/en/coffee-coffee-cup-cup-of-coffee-1911764/*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+#welcome h1 {
+  display: block;
+  font-size: 4.5vw;
+  /*font-family: 'Plaster', cursive;*/
+  margin: 50vh auto;
+  border-top: 1px solid black;
+  display: inline-block;
+  padding-right: 4.5vw;
+}
+
+#welcome i {
+  font-size: 2.5vw;
+  position: absolute;
+  bottom: 2.5vh;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+#promt {
+  text-align: center;
+}
+
+#promt h1 {
+  margin: 50vh auto;
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 1vh 1vw;
+}
+
+#promt h1:hover {
+}
+
+#promt h1:hover {
+  background-color: #43A5CF;
+  color: white;
+  transition-duration: .4s;
+  border: 1px solid #43A5CF;
+  box-shadow: 2px 2px 4px rgba(0,0,0,.3);
+}
+
+#promt h1:active {
+  background-color: #215267;
+  border: 1px solid #215267;
+}
+
+/*split screen styles*/
+
+.split-screen {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.statistics {
+  width: 50%;
+  background-color: #f6f6f6;
+  border-top: 1vmin solid white;
+  border-left: 1vmin solid white;
+}
+
+.user-data {
+  width: 50%;
+  border-top: 1vmin solid white;
+  border-right: 1vmin solid white;
+}
+
+.split-screen article {
+  padding: 2.5vh 2.5vw;
+  min-height: 90vh;
+}
+
+h2 {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .statistics {
+    width: 100%
+  }
+
+  .user-data {
+    width: 100%;
+  }
+}
