@@ -4,18 +4,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+    <!-- LIBRARIES / FRAMEWORKS-->
+    <!-- jQuery -->
     <script
     src="https://code.jquery.com/jquery-3.2.1.js"
     integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
     crossorigin="anonymous"></script>
+    <!-- angularjs -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
+    <!-- angularjs routes -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+    <base href="/">
+    <!-- SCRIPTS -->
     <script src="js/app.js" charset="utf-8"></script>
+    <!-- DIRECTIVES -->
+    <script src="js/controllers/split-screen.js" charset="utf-8"></script>
+    <script src="js/directives/split-screen.js" charset="utf-8"></script>
+    <!-- STYLES -->
     <link rel="stylesheet" href="/css/main.css">
   </head>
   <body ng-controller="mainCtrl as ctrl">
     <nav>
-      <h1>{{ctrl.title}}</h1>
+      <h1><a href="/splash">{{ctrl.title}}</a></h1>
       <div class="">
         <span>
             <i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i>
@@ -36,44 +46,7 @@
       </div>
       <span>my account</span>
     </nav>
-    <section class="single">
-      <article class="single-article" id="welcome">
-        <h1>analyze your coffee love</h1>
-        <a href="#first-split-screen-element"><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-      </article>
-    </section>
-    <section class="split-screen" id="first-split-screen-element">
-      <section class="statistics">
-        <article class="">
-          <h2>Title of a stat</h2>
-          <p>graph about a coffee consumption fact is displayed here</p>
-        </article>
-      </section>
-      <section class="user-data">
-        <article class="">
-          <h2>User stats</h2>
-          <p>user can input data here</p>
-          <p>on submission graph with user data corresponding to topic on the left is displayed</p>
-        </article>
-      </section>
-      <section class="statistics">
-        <article class="">
-          <h2>Title of a stat</h2>
-          <p>graph about a coffee consumption fact is displayed here</p>
-        </article>
-      </section>
-      <section class="user-data">
-        <article class="">
-          <h2>User stats</h2>
-          <p>user can input data here</p>
-          <p>on submission graph with user data corresponding to topic on the left is displayed</p>
-        </article>
-      </section>
-    </section>
-    <section class="single">
-      <article class="single-article" id="promt">
-        <h1>Create account</h1>
-      </article>
-    </section>
+    <main ng-view>
+    </main>
   </body>
 </html>
