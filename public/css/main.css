@@ -67,12 +67,19 @@ nav div span:hover {
   transition-duration: .4s;
 }
 
+article {
+  padding: 2.5vh 2.5vw;
+  height: 90vh;
+  margin-top: 10vh;
+  font-size: 3.5vmin;
+}
+
 /*single view styles*/
 
-.single-article {
+/*.single-article {
   height: 100vh;
   padding: 2.5vh 2.5vw;
-}
+}*/
 
 #welcome {
   background-image: url('../img/coffee-bw.jpg');
@@ -81,6 +88,8 @@ nav div span:hover {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  height: 100vh;
+  margin-top: 0;
 }
 
 #welcome h1 {
@@ -107,14 +116,11 @@ nav div span:hover {
 }
 
 #promt h1 {
-  margin: 50vh auto;
+  margin: 40vh auto;
   display: inline-block;
   border: 1px solid black;
   border-radius: 3px;
   padding: 1vh 1vw;
-}
-
-#promt h1:hover {
 }
 
 #promt h1:hover {
@@ -140,19 +146,77 @@ nav div span:hover {
 .statistics {
   width: 50%;
   background-color: #f6f6f6;
-  border-top: 1vmin solid white;
+  background: -webkit-linear-gradient(white, #f6f6f6, #f6f6f6);
+  background: -o-linear-gradient(white, #f6f6f6, #f6f6f6);
+  background: -moz-linear-gradient(white, #f6f6f6, #f6f6f6);
+  background: linear-gradient(white, #f6f6f6, #f6f6f6);
   border-left: 1vmin solid white;
 }
 
 .user-data {
   width: 50%;
-  border-top: 1vmin solid white;
   border-right: 1vmin solid white;
 }
 
-.split-screen article {
+/*.split-screen article {
   padding: 2.5vh 2.5vw;
   min-height: 90vh;
+}*/
+
+#cupGraphic {
+  display: flex;
+  flex-direction: column;
+}
+
+#cupGraphic > div {
+  flex: 1;
+  flex-flow: row nowrap;
+  display: flex;
+  align-items: flex-end;
+}
+
+
+#ladyLiberty {
+  background-image: url('../smashing-freebie-touristic-icon-set/SVG/26.svg');
+  height: 100%;
+  width: 80%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+#ladyLiberty span {
+  display: inline-block;
+  margin-top: 3vh;
+  padding-right: 3vw;
+  border-top: 1px solid black;
+  font-size: 3vmin;
+  font-size: 3vmin;
+}
+
+#paperCupTower {
+  width: 15%;
+  min-height: 0;
+  max-height: 100%;
+  height: 0;
+  background-image: url('../barista-icon-set/SVG/barista-icons_coffee-to-go.svg');
+  background-repeat: space;
+  background-position: bottom center;
+  background-size: contain;
+  margin: 0 auto;
+  border-left: 1vmin solid white;
+  position: relative;
+}
+
+#paperCupTower span {
+  font-size: 3vmin;
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+  position: absolute;
+  top: -3vmin;
+  left: 0;
+  border-bottom: 2px solid deeppink;
 }
 
 h2 {

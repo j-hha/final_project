@@ -15,6 +15,8 @@
     <!-- angularjs routes -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
     <base href="/">
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" charset="utf-8"></script>
     <!-- SCRIPTS -->
     <script src="js/app.js" charset="utf-8"></script>
     <!-- DIRECTIVES -->
@@ -25,7 +27,7 @@
   </head>
   <body ng-controller="mainCtrl as ctrl">
     <nav>
-      <h1><a href="/splash">{{ctrl.title}}</a></h1>
+      <h1><a href="/">{{ctrl.title}}</a></h1>
       <div class="">
         <span>
             <i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i>
@@ -44,9 +46,8 @@
           <span>society</span>
         </span>
       </div>
-      <span>my account</span>
+      <span><a href="/my-account">my account</a></span>
     </nav>
-    <main ng-view>
-    </main>
+    <main ng-view></main>
   </body>
 </html>
