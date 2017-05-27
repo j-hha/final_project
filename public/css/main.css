@@ -179,13 +179,15 @@ article {
 
 
 #ladyLiberty {
-  background-image: url('../smashing-freebie-touristic-icon-set/SVG/26.svg');
+  /*background-image: url('../smashing-freebie-touristic-icon-set/SVG/26.svg');*/
+  background-image: url('../img/red-usa-statue-of-liberty-by-Vexels.svg');
   height: 100%;
   flex-grow: 1;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   position: relative;
+  /*<a target="_blank" href="https://www.vexels.com/vectors/preview/128622/red-usa-statue-of-liberty"> Red usa statue of liberty </a> |   Designed by Vexels.com*/
 }
 
 #ladyLiberty span {
@@ -195,7 +197,7 @@ article {
   position: absolute;
   top: -2.5vmin;
   left: 25%;
-  border-bottom: 2px solid deeppink;
+  border-bottom: 2px solid #191919;
   text-align: center;
 }
 
@@ -223,16 +225,16 @@ article {
 }
 
 .percentageSmaller100 {
-  border-bottom: 2px solid deeppink;
+  border-bottom: 2px solid #191919;
 }
 
 .percentageGreater100 {
   border-bottom: 0;
-  border-top: 2px solid deeppink;
+  border-top: 2px solid #191919;
   background: -webkit-linear-gradient(rgba(255,20,147,.3), rgba(255,20,147,0));
   background: -o-linear-gradient(rgba(255,20,147,.3), rgba(255,20,147,0));
   background: -moz-linear-gradient(rgba(255,20,147,.3), rgba(255,20,147,0));
-  background: linear-gradient(rgba(255,20,147,.15), rgba(255,20,147,0));
+  background: linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,0));
 }
 
 .one-line-form {
@@ -290,9 +292,5 @@ h2 {
 
   .user-data {
     width: 100%;
-  }
-
-  #ladyLiberty {
-    background-size: cover;
   }
 }
