@@ -173,29 +173,34 @@ article {
   flex-flow: row nowrap;
   display: flex;
   align-items: flex-end;
+  margin-top: 3vh;
+  justify-content: space-around;
 }
 
 
 #ladyLiberty {
   background-image: url('../smashing-freebie-touristic-icon-set/SVG/26.svg');
   height: 100%;
-  width: 80%;
+  flex-grow: 1;
   background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+  background-position: center;
+  background-size: contain;
+  position: relative;
 }
 
 #ladyLiberty span {
   display: inline-block;
-  margin-top: 3vh;
-  padding-right: 3vw;
-  border-top: 1px solid black;
-  font-size: 3vmin;
-  font-size: 3vmin;
+  width: 50%;
+  font-size: 2vmin;
+  position: absolute;
+  top: -2.5vmin;
+  left: 25%;
+  border-bottom: 2px solid deeppink;
+  text-align: center;
 }
 
 #paperCupTower {
-  width: 15%;
+  width: 10%;
   min-height: 0;
   max-height: 100%;
   height: 0;
@@ -203,24 +208,79 @@ article {
   background-repeat: space;
   background-position: bottom center;
   background-size: contain;
-  margin: 0 auto;
   border-left: 1vmin solid white;
   position: relative;
 }
 
-#paperCupTower span {
-  font-size: 3vmin;
+#paperCupTowerLabel {
+  font-size: 2vmin;
   width: 100%;
   text-align: center;
   display: inline-block;
   position: absolute;
-  top: -3vmin;
+  top: -2.5vmin;
   left: 0;
+}
+
+.percentageSmaller100 {
   border-bottom: 2px solid deeppink;
+}
+
+.percentageGreater100 {
+  border-bottom: 0;
+  border-top: 2px solid deeppink;
+  background: -webkit-linear-gradient(rgba(255,20,147,.3), rgba(255,20,147,0));
+  background: -o-linear-gradient(rgba(255,20,147,.3), rgba(255,20,147,0));
+  background: -moz-linear-gradient(rgba(255,20,147,.3), rgba(255,20,147,0));
+  background: linear-gradient(rgba(255,20,147,.15), rgba(255,20,147,0));
+}
+
+.one-line-form {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  padding: 2vh 1vw;
+  font-size: 2vmin;
+  align-items: center;
+}
+
+.one-line-form input {
+  font-family: 'Lato', sans-serif;
+  font-size: 2vmin;
+}
+
+#paper-cups-form {
+  width: 7vmin;
+}
+
+.one-line-form input[type="submit"] {
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 1vh 1vw;
+  background-color: white;
+}
+
+.one-line-form input[type="submit"]:hover {
+  background-color: #43A5CF;
+  color: white;
+  transition-duration: .3s;
+  border: 1px solid #43A5CF;
+  box-shadow: 2px 2px 4px rgba(0,0,0,.3);
 }
 
 h2 {
   text-align: center;
+  text-transform: uppercase;
+  font-size: 3vmin;
+}
+
+#paper-cup-stat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 5vmin;
 }
 
 @media (max-width: 768px) {
@@ -230,5 +290,9 @@ h2 {
 
   .user-data {
     width: 100%;
+  }
+
+  #ladyLiberty {
+    background-size: cover;
   }
 }

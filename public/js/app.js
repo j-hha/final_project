@@ -35,5 +35,13 @@ app.controller('mainCtrl', ['$scope', '$routeParams', function($scope, $routePar
     } else {
       $('#paperCupTower').css('min-height', 0);
     }
+
+    if (percentage > 100) {
+      $('#paperCupTowerLabel').addClass("percentageGreater100");
+      $('#paperCupTowerLabel').removeClass("percentageSmaller100");
+    } else {
+      $('#paperCupTowerLabel').addClass("percentageSmaller100");
+      $('#paperCupTowerLabel').removeClass("percentageGreater100");
+    }
   };
 }]);
