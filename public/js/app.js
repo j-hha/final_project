@@ -16,10 +16,18 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 }]);
 
 
-app.controller('mainCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
+app.controller('mainCtrl', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
   this.title = 'Page Title';
-  $scope.baseUrl = 'http://localhost:3000';
+  $scope.baseUrl = 'http://localhost:3000/';
   $scope.currentUser = false;
+
+  // coffee data ---------------------------------------------------------------
+  $scope.coffeeServings = [];
+  $scope.coffeePurchasesByCup = [];
+  $scope.coffeePurchasesByBag = [];
+  // coffee data end -----------------------------------------------------------
+
+  // paper cup counter logic ---------------------------------------------------
   this.numOfPaperCups = 0;
   this.paperCupTower = 0;
   this.paperCupTowerInFt = 0 + ' ft';
@@ -44,4 +52,34 @@ app.controller('mainCtrl', ['$scope', '$routeParams', function($scope, $routePar
       $('#paperCupTowerLabel').removeClass("percentageGreater100");
     }
   };
+  // paper cup counter logic end -----------------------------------------------
+
+  // http get request for data
+  $http({
+    method: 'GET',
+    url: $scope.baseUrl + 'purchases'
+  }).then(
+    response => {
+      console.log(response);
+      for (var i = 0; i < response.data.length; i++) {
+        if (response.data[i].by_cup === false) {
+          $scope.coffeePurchasesByBag.push(response.data[i]);
+        }
+      }
+      console.log($scope.coffeePurchasesByBag);
+    },
+    error => {
+      console.log(error);
+    }
+  );
+
+  $scope.availablePurchases = function() {
+    if ($scope.coffeePurchasesByBag.length > 0) {
+      $('#tab3').css('display', 'block');
+    } else {
+      $('#tab3').css('display', 'none');
+    }
+  }
+
+  $scope.availablePurchases();
 }]);

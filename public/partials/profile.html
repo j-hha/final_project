@@ -1,72 +1,90 @@
 <section>
   <h2>add coffee data </h2>
   <ul class="coffee-input-form-labels">
-    <li ng-click="profile.select('tab1')" id="tab1" class="selected">homemade</li>
-    <li ng-click="profile.select('tab2')" id="tab2">restaurant prepared</li>
-    <li ng-click="profile.select('tab3')" id="tab3">by bag</li>
+    <li ng-click="profile.select('tab1')" id="tab1" class="selected">restaurant prepared</li>
+    <li ng-click="profile.select('tab2')" id="tab2">by bag</li>
+    <li ng-click="profile.select('tab3')" id="tab3">homemade</li>
   </ul>
-  <section id="homemade" ng-if="profile.tabs.tab1">
-    <form class="coffee-input-forms">
-      <fieldset>
-        <legend>coffee by cup, homemade</legend>
-        <label for="beverage_type">Beverage: </label>
-        <select id="beverage_type" name="beverage_type">
-          <option value="espresso">espresso (Italian style)</option>
-          <option value="cappuccino">cappuccino (Italian style)</option>
-          <option value="black coffee">black coffee</option>
-          <option value="instant coffee">instant coffee</option>
-        </select>
-        <label for="dateServing">date:</label>
-        <input id="dateServing" type="date" name="date" value="">
-        <label for="purchase">from bag</label>
-        <select id="purchase" class="" name="">
-          <option value="">brand and date</option>
-        </select>
-        <input type="submit" class="submit">
-      </fieldset>
-    </form>
-  </section>
-  <section id="restaurant_prepared" ng-if="profile.tabs.tab2">
-    <form class="coffee-input-forms">
+  <section id="restaurant_prepared" ng-if="profile.tabs.tab1">
+    <form class="coffee-input-forms" ng-submit="profile.addCoffeeShopPurchase(newPurchase, newServing)">
       <fieldset>
         <legend>coffee by cup, restaurant prepared</legend>
         <label for="beverage_type">Beverage: </label>
-        <select id="beverage_type" name="beverage_type">
+        <select id="beverage_type" name="beverage_type" ng-model="newServing.beverage_type" required>
+          <option value="">---Please select---</option>
           <option value="espresso">espresso (Italian style)</option>
           <option value="cappuccino">cappuccino (Italian style)</option>
           <option value="black coffee">black coffee</option>
           <option value="instant coffee">instant coffee</option>
         </select>
-        <label for="dateServing">date:</label>
-        <input id="dateServing" type="date" name="date" value="">
+        <br>
+        <label for="datePurchaseAndServing">date:</label>
+        <input id="datePurchaseAndServing" type="date" ng-model="newPurchase.date">
+        <br>
         <label for="disposable_cup">disposable cup</label>
-        <input type="checkbox" name="" value="">
+        <input type="checkbox" ng-model="newServing.disposable_cup">
+        <br>
         <label for="price">price:</label>
-        <input id="price" type="number" name="price" min="0" step="0.1" required>
+        <input id="price" type="number" ng-model="newPurchase.price" min="0" step="0.01" required>
+        <br>
         <label for="brand">brand:</label>
-        <input type="text" name="brand" placeholder="brand">
+        <input type="text" ng-model="newPurchase.brand" placeholder="brand">
+        <br>
         <label for="rating">rating (0-5):</label>
-        <input type="number" name="rating" min="0" max="5">
+        <input type="number" ng-model="newPurchase.rating" min="0" max="5">
+        <br>
         <label for="fairtrade">fair trade</label>
-        <input id="fairtrade" type="checkbox" name="fairtrade">
+        <input id="fairtrade" type="checkbox" ng-model="newPurchase.fair_trade">
+        <br>
         <input type="submit" class="submit">
       </fieldset>
     </form>
   </section>
-  <section id="by_bag" ng-if="profile.tabs.tab3">
-    <form class="coffee-input-forms">
+  <section id="by_bag" ng-if="profile.tabs.tab2">
+    <form class="coffee-input-forms" ng-submit="profile.addNewBagOfCoffee(newPurchase)">
       <fieldset>
         <legend>coffee by bag</legend>
         <label for="datePurchase">date:</label>
-        <input id="datePurchase" type="date" name="date" value="" required>
+        <input id="datePurchase" type="date" ng-model="newPurchase.date" required>
+        <br>
         <label for="price">price:</label>
-        <input id="price" type="number" name="price" min="0" step="0.1" required>
+        <input id="price" type="number" ng-model="newPurchase.price" min="0" step="0.01" required>
+        <br>
         <label for="brand">brand:</label>
-        <input type="text" name="brand" placeholder="brand">
+        <input type="text" ng-model="newPurchase.brand" placeholder="brand">
+        <br>
         <label for="rating">rating (0-5):</label>
-        <input type="number" name="rating" min="0" max="5">
+        <input type="number" ng-model="newPurchase.rating" min="0" max="5">
+        <br>
         <label for="fairtrade">fair trade</label>
-        <input id="fairtrade" type="checkbox" name="fairtrade">
+        <input id="fairtrade" type="checkbox" ng-model="newPurchase.fair_trade">
+        <br>
+        <input type="submit" class="submit">
+      </fieldset>
+    </form>
+  </section>
+  <section id="homemade" ng-if="profile.tabs.tab3">
+    <form class="coffee-input-forms" ng-submit="profile.addHomemadeCoffee(newServing)">
+      <fieldset>
+        <legend>coffee by cup, homemade</legend>
+        <label for="beverage_type">Beverage: </label>
+        <select id="beverage_type" name="beverage_type" ng-model="newServing.beverage_type" required>
+          <option value="">---Please select---</option>
+          <option value="espresso">espresso (Italian style)</option>
+          <option value="cappuccino">cappuccino (Italian style)</option>
+          <option value="black coffee">black coffee</option>
+          <option value="instant coffee">instant coffee</option>
+        </select>
+        <br>
+        <label for="dateServing">date:</label>
+        <input id="dateServing" type="date" ng-model="newServing.date">
+        <br>
+        <label for="purchase">from bag</label>
+        <select id="purchase" name="purchase_id" ng-model="newServing.purchase_id" required>
+          <option value="">---Please select---</option>
+          <option ng-repeat="purchase in coffeePurchasesByBag" value="{{purchase.id}}">{{purchase.brand}}, {{purchase.date}}</option>
+        </select>
+        <br>
         <input type="submit" class="submit">
       </fieldset>
     </form>

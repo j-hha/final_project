@@ -71,7 +71,7 @@ article {
   padding: 2.5vh 2.5vw;
   height: 90vh;
   margin-top: 10vh;
-  font-size: 3.5vmin;
+  font-size: 2vw;
 }
 
 /*single view styles*/
@@ -193,7 +193,7 @@ article {
 #ladyLiberty span {
   display: inline-block;
   width: 50%;
-  font-size: 2vmin;
+  font-size: 1.5vw;
   position: absolute;
   top: -2.5vmin;
   left: 25%;
@@ -231,11 +231,11 @@ article {
 
 .percentageGreater100 {
   border-bottom: 0;
-  border-top: 2px solid #191919;
-  background: -webkit-linear-gradient(rgba(255,20,147,.3), rgba(255,20,147,0));
-  background: -o-linear-gradient(rgba(255,20,147,.3), rgba(255,20,147,0));
-  background: -moz-linear-gradient(rgba(255,20,147,.3), rgba(255,20,147,0));
-  background: linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,0));
+  border-top: 1px dashed #191919;
+  background: -webkit-linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,0));
+  background: -o-linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,0));
+  background: -moz-linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,0));
+  background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,0));
 }
 
 .one-line-form {
@@ -285,14 +285,44 @@ h2 {
   padding: 3vh 2vw;
 }
 
-fieldset {
+.coffee-input-forms fieldset {
   border: 2px solid #fff;
   border-radius: 3px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
   padding: 2vh 2vw;
+}
+
+.coffee-input-forms fieldset label {
+  width: 30%;
+  margin: 1vh auto 0 auto;
+  display: inline-block;
+}
+
+.coffee-input-forms fieldset select {
+  width: 60%;
+  margin: 1vh auto 0 auto;
+  display: inline-block;
+}
+
+.coffee-input-forms fieldset input:not(.submit):not([type="number"]) {
+  width: 60%;
+  margin: 1vh auto 0 auto;
+  display: inline-block;
+}
+
+/*.coffee-input-forms input[type="checkbox"] {
+  margin: 2vh auto;
+  display: inline-block;
+  border: 5px solid deeppink;
+}*/
+
+.coffee-input-forms input[type="number"] {
+  margin: 1vh auto 0 auto;
+  display: inline-block;
+}
+
+.coffee-input-forms fieldset input[type="submit"] {
+  margin: 1vh auto 0 auto;
+  display: block;
 }
 
 .coffee-input-form-labels {
@@ -368,6 +398,10 @@ fieldset {
 @media (max-width: 768px) and (orientation: portrait) {
   #ladyLiberty {
     background-size: cover;
+  }
+
+  #ladyLiberty span {
+    font-size: 1.5vh;
   }
 
   .coffee-input-forms {
