@@ -12,11 +12,6 @@
 <section class="user-data">
   <article id="cupGraphic">
     <h2>Your annual paper cup tower</h2>
-    <form class="one-line-form" ng-submit="ctrl.getNumOfPaperCupsPerYear()">
-      <label for="paper-cups-form">coffee-to-go / week:</label>
-      <input ng-model="ctrl.numOfPaperCups" id="paper-cups-form" min="0" max="60" type="number">
-      <input type="submit" value="SUBMIT">
-    </form>
       <div class="">
         <div id="ladyLiberty">
           <span>151 ft</span>
@@ -25,5 +20,10 @@
           <span id="paperCupTowerLabel">{{ctrl.paperCupTowerInFt}}</span>
         </div>
       </div>
+      <form class="one-line-form" ng-submit="ctrl.getNumOfPaperCupsPerYear()">
+        <label for="paper-cups-form">coffee-to-go / week:</label>
+        <input ng-model="ctrl.numOfPaperCups" id="paper-cups-form" min="0" max="60" type="number">
+        <input type="submit" class="submit">
+      </form>
   </article>
 </section>

@@ -4,7 +4,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   $locationProvider.html5Mode({ enabled: true });
 
   $routeProvider.when('/my-account', {
-    templateUrl: '../partials/profile.html',
+    templateUrl: '../partials/dashboard.html',
     controller: 'mainCtrl',
     controllerAs: 'ctrl'
   }).otherwise({

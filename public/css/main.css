@@ -222,6 +222,7 @@ article {
   position: absolute;
   top: -2.5vmin;
   left: 0;
+  background-color: white;
 }
 
 .percentageSmaller100 {
@@ -250,25 +251,17 @@ article {
 .one-line-form input {
   font-family: 'Lato', sans-serif;
   font-size: 2vmin;
+  border: 1px solid #43A5CF;
+  border-radius: 3px;
+  padding: .5vh .5vw;
+}
+
+input[type="number"] {
+  padding: .5vh 0 .5vh .5vw;
 }
 
 #paper-cups-form {
   width: 7vmin;
-}
-
-.one-line-form input[type="submit"] {
-  border: 1px solid black;
-  border-radius: 3px;
-  padding: 1vh 1vw;
-  background-color: white;
-}
-
-.one-line-form input[type="submit"]:hover {
-  background-color: #43A5CF;
-  color: white;
-  transition-duration: .3s;
-  border: 1px solid #43A5CF;
-  box-shadow: 2px 2px 4px rgba(0,0,0,.3);
 }
 
 h2 {
@@ -285,6 +278,55 @@ h2 {
   font-size: 5vmin;
 }
 
+.coffee-input-forms {
+  background-color: #f8f8f8;
+  width: 50%;
+  margin: 0 auto;
+  padding: 3vh 2vw;
+}
+
+fieldset {
+  border: 2px solid #fff;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 2vh 2vw;
+}
+
+.coffee-input-form-labels {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row nowrap;
+  width: 50%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.coffee-input-form-labels li {
+  list-style: none;
+  padding: 1vh 2vw;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  margin-right: .5vw;
+}
+
+.coffee-input-form-labels li:not(.selected) {
+  background-color: #43A5CF;
+  color: white;
+}
+
+.coffee-input-form-labels li:not(.selected):hover {
+  background-color: #215267;
+  color: white;
+}
+
+.selected {
+  background-color: #f8f8f8;
+  text-shadow: 1px 1px 3px #ccc;
+}
+
 @media (max-width: 768px) {
   .statistics {
     width: 100%
@@ -292,5 +334,49 @@ h2 {
 
   .user-data {
     width: 100%;
+  }
+}
+
+.submit {
+  font-family: 'Lato', sans-serif;
+  font-size: 2vmin;
+}
+
+.submit {
+  border: 1px solid #43A5CF;
+  border-radius: 3px;
+  padding: 1vh 1vw;
+  background-color: white;
+  color: #43A5CF;
+  text-transform: uppercase;
+  padding: .5vh .5vw;
+
+}
+
+.submit:hover {
+  background-color: #43A5CF;
+  color: white;
+  transition-duration: .3s;
+  border: 1px solid #43A5CF;
+  box-shadow: 2px 2px 4px rgba(0,0,0,.3);
+}
+
+.submit:active {
+  background-color: #215267;
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+  #ladyLiberty {
+    background-size: cover;
+  }
+
+  .coffee-input-forms {
+    font-size: 1.5em;
+    width: 90%;
+  }
+
+  .coffee-input-form-labels {
+    font-size: 1.2em;
+    width: 90%;
   }
 }
