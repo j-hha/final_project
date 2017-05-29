@@ -4,6 +4,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   $locationProvider.html5Mode({ enabled: true });
 
   $routeProvider.when('/', {
+    // based on: https://ciphertrick.com/2014/12/14/check-condition-before-loading-route-in-angular-js/
     resolve: {
         authenticate: function($location, $rootScope) {
             if($rootScope.currentUser) {
