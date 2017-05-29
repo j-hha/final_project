@@ -1,0 +1,46 @@
+<section id="consumption">
+  <h2>My Coffee Consumption</h2>
+  <table>
+    <tr>
+      <th>date</th>
+      <th>beverage</th>
+      <th>caffeine</th>
+      <th>kcal</th>
+      <th>sugar</th>
+      <th>fat</th>
+      <th>paper cup</th>
+      <th><i class="fa fa-trash-o" aria-hidden="true"></i></th>
+    </tr>
+    <tr ng-repeat="serving in coffeeServings | orderBy: 'serving.date':true track by $index">
+      <td>{{serving.date}}</td>
+      <td>{{serving.beverage_type}}</td>
+      <td>{{serving.caffeine}}</td>
+      <td>{{serving.cal}}</td>
+      <td>{{serving.sugar}}</td>
+      <td>{{serving.fat}}</td>
+      <td>{{serving.disposable_cup}}</td>
+      <td>DELETE</td>
+    </tr>
+  </table>
+</section>
+<section id="purchase">
+  <h2>My Coffee Purchases</h2>
+  <table>
+    <tr>
+      <th>date</th>
+      <th>brand</th>
+      <th>price</th>
+      <th>rating</th>
+      <th>fair trade</th>
+      <th><i class="fa fa-trash-o" aria-hidden="true"></i></th>
+    </tr>
+    <tr ng-repeat="purchase in allPurchases | orderBy: 'purchase.date':true track by $index">
+      <td>{{purchase.date}}</td>
+      <td>{{purchase.brand}}</td>
+      <td>{{purchase.price}}</td>
+      <td>{{purchase.rating}}</td>
+      <td>{{purchase.fair_trade}}</td>
+      <td>DELETE</td>
+    </tr>
+  </table>
+</section>

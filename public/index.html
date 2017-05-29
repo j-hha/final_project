@@ -19,11 +19,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" charset="utf-8"></script>
     <!-- SCRIPTS -->
     <script src="js/app.js" charset="utf-8"></script>
-    <!-- DIRECTIVES -->
+    <!-- CONTROLLERS -->
+    <script src="js/controllers/dashboard.js" charset="utf-8"></script>
+    <!-- DIRECTIVES and respective CONTROLLERS-->
     <script src="js/controllers/split-screen.js" charset="utf-8"></script>
     <script src="js/directives/split-screen.js" charset="utf-8"></script>
     <script src="js/controllers/profile.js" charset="utf-8"></script>
     <script src="js/directives/profile.js" charset="utf-8"></script>
+    <script src="js/controllers/all-data.js" charset="utf-8"></script>
+    <script src="js/directives/all-data.js" charset="utf-8"></script>
+    <script src="js/controllers/add-data.js" charset="utf-8"></script>
+    <script src="js/directives/add-data.js" charset="utf-8"></script>
     <!-- STYLES -->
     <link rel="stylesheet" href="/css/main.css">
   </head>
@@ -31,6 +37,10 @@
     <nav>
       <h1><a href="/">{{ctrl.title}}</a></h1>
       <div class="">
+        <span>
+            <i class="fa fa-tachometer fa-2x" aria-hidden="true"></i>
+            <span>dashboard</span>
+        </span>
         <span>
             <i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i>
             <span>health</span>
@@ -48,8 +58,9 @@
           <span>society</span>
         </span>
       </div>
-      <span><a href="/my-account">dashboard</a></span>
+      <span><a href="/my-dashboard">log in / out</a></span>
     </nav>
     <main ng-view></main>
+    <footer>Created by GA student Hanna Hauck</footer>
   </body>
 </html>

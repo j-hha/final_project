@@ -3,20 +3,17 @@ const app = angular.module('CoffeeApp', ['ngRoute']);
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   $locationProvider.html5Mode({ enabled: true });
 
-  $routeProvider.when('/my-account', {
+  $routeProvider.when('/my-dashboard', {
     templateUrl: '../partials/dashboard.html',
-    controller: 'mainCtrl',
-    controllerAs: 'ctrl'
+    controller: 'dashboardController',
+    controllerAs: 'dashboardCtrl'
   }).otherwise({
     redirectTo: '/',
     templateUrl: '../partials/splash-page.html',
     controller: 'mainCtrl',
     controllerAs: 'ctrl'
   });
-}]);
-
-
-app.controller('mainCtrl', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
+}]).controller('mainCtrl', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
   this.title = 'Page Title';
   $scope.baseUrl = 'http://localhost:3000/';
   $scope.currentUser = false;
@@ -25,6 +22,7 @@ app.controller('mainCtrl', ['$scope', '$routeParams', '$http', function($scope, 
   $scope.coffeeServings = [];
   $scope.coffeePurchasesByCup = [];
   $scope.coffeePurchasesByBag = [];
+  $scope.allPurchases = [];
   // coffee data end -----------------------------------------------------------
 
   // paper cup counter logic ---------------------------------------------------
@@ -53,33 +51,4 @@ app.controller('mainCtrl', ['$scope', '$routeParams', '$http', function($scope, 
     }
   };
   // paper cup counter logic end -----------------------------------------------
-
-  // http get request for data
-  $http({
-    method: 'GET',
-    url: $scope.baseUrl + 'purchases'
-  }).then(
-    response => {
-      console.log(response);
-      for (var i = 0; i < response.data.length; i++) {
-        if (response.data[i].by_cup === false) {
-          $scope.coffeePurchasesByBag.push(response.data[i]);
-        }
-      }
-      console.log($scope.coffeePurchasesByBag);
-    },
-    error => {
-      console.log(error);
-    }
-  );
-
-  $scope.availablePurchases = function() {
-    if ($scope.coffeePurchasesByBag.length > 0) {
-      $('#tab3').css('display', 'block');
-    } else {
-      $('#tab3').css('display', 'none');
-    }
-  }
-
-  $scope.availablePurchases();
 }]);

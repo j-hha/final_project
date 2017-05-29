@@ -12,6 +12,7 @@
 body {
   margin: 0;
   font-family: 'Lato', sans-serif;
+  font-size: 1.2em;
 }
 
 a {
@@ -37,8 +38,8 @@ nav {
   width: 100%;
   left: 0;
   top: 0;
-  height: 10vh;
-  background-color: rgba(255,255,255,.9);
+  height: 12vh;
+  background-color: rgba(255,255,255,.96);
   z-index: 1;
 }
 
@@ -70,16 +71,9 @@ nav div span:hover {
 article {
   padding: 2.5vh 2.5vw;
   height: 90vh;
-  margin-top: 10vh;
-  font-size: 2vw;
+  margin-top: 12vh;
 }
 
-/*single view styles*/
-
-/*.single-article {
-  height: 100vh;
-  padding: 2.5vh 2.5vw;
-}*/
 
 #welcome {
   background-image: url('../img/coffee-bw.jpg');
@@ -95,14 +89,18 @@ article {
 #welcome h1 {
   display: block;
   font-size: 4.5vw;
-  /*font-family: 'Plaster', cursive;*/
   margin: 50vh auto;
   border-top: 1px solid black;
   display: inline-block;
-  padding-right: 4.5vw;
+  padding-right: 4vw;
 }
 
-#welcome i {
+#welcome h1 i {
+  font-size: 3vw;
+  color: rgb(217,33,40);
+}
+
+#arrow i {
   font-size: 2.5vw;
   position: absolute;
   bottom: 2.5vh;
@@ -193,12 +191,12 @@ article {
 #ladyLiberty span {
   display: inline-block;
   width: 50%;
-  font-size: 1.5vw;
   position: absolute;
   top: -2.5vmin;
   left: 25%;
   border-bottom: 2px solid #191919;
   text-align: center;
+  font-size: .8em;
 }
 
 #paperCupTower {
@@ -215,7 +213,6 @@ article {
 }
 
 #paperCupTowerLabel {
-  font-size: 2vmin;
   width: 100%;
   text-align: center;
   display: inline-block;
@@ -223,6 +220,7 @@ article {
   top: -2.5vmin;
   left: 0;
   background-color: white;
+  font-size: .8em;
 }
 
 .percentageSmaller100 {
@@ -244,16 +242,15 @@ article {
   flex-flow: row nowrap;
   justify-content: space-around;
   padding: 2vh 1vw;
-  font-size: 2vmin;
   align-items: center;
 }
 
 .one-line-form input {
   font-family: 'Lato', sans-serif;
-  font-size: 2vmin;
   border: 1px solid #43A5CF;
   border-radius: 3px;
   padding: .5vh .5vw;
+  font-size: .8em;
 }
 
 input[type="number"] {
@@ -267,7 +264,6 @@ input[type="number"] {
 h2 {
   text-align: center;
   text-transform: uppercase;
-  font-size: 3vmin;
 }
 
 #paper-cup-stat {
@@ -275,20 +271,32 @@ h2 {
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 5vmin;
+  font-size: 2em;
+}
+
+#paper-cup-stat small {
+  font-size: .5em;
 }
 
 .coffee-input-forms {
-  background-color: #f8f8f8;
+  background-color: #efefef;
   width: 50%;
   margin: 0 auto;
   padding: 3vh 2vw;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
 
 .coffee-input-forms fieldset {
-  border: 2px solid #fff;
-  border-radius: 3px;
+  border: 3px solid white;
   padding: 2vh 2vw;
+  font-size: .9em;
+}
+
+.coffee-input-forms fieldset legend {
+  text-transform: uppercase;
+  font-size: .8em;
 }
 
 .coffee-input-forms fieldset label {
@@ -301,12 +309,15 @@ h2 {
   width: 60%;
   margin: 1vh auto 0 auto;
   display: inline-block;
+  font-size: .9em;
 }
 
 .coffee-input-forms fieldset input:not(.submit):not([type="number"]) {
   width: 60%;
   margin: 1vh auto 0 auto;
   display: inline-block;
+  font-size: .9em;
+  font-family: 'Lato', sans-serif;
 }
 
 /*.coffee-input-forms input[type="checkbox"] {
@@ -318,11 +329,13 @@ h2 {
 .coffee-input-forms input[type="number"] {
   margin: 1vh auto 0 auto;
   display: inline-block;
+  font-size: .9em;
 }
 
 .coffee-input-forms fieldset input[type="submit"] {
   margin: 1vh auto 0 auto;
   display: block;
+  font-size: .9em;
 }
 
 .coffee-input-form-labels {
@@ -343,17 +356,16 @@ h2 {
 }
 
 .coffee-input-form-labels li:not(.selected) {
+  background-color: #e1e1e1;
+}
+
+.coffee-input-form-labels li:not(.selected):hover {
   background-color: #43A5CF;
   color: white;
 }
 
-.coffee-input-form-labels li:not(.selected):hover {
-  background-color: #215267;
-  color: white;
-}
-
 .selected {
-  background-color: #f8f8f8;
+  background-color: #efefef;
   text-shadow: 1px 1px 3px #ccc;
 }
 
@@ -369,18 +381,17 @@ h2 {
 
 .submit {
   font-family: 'Lato', sans-serif;
-  font-size: 2vmin;
 }
 
 .submit {
   border: 1px solid #43A5CF;
   border-radius: 3px;
   padding: 1vh 1vw;
-  background-color: white;
+  background-color: transparent;
   color: #43A5CF;
   text-transform: uppercase;
   padding: .5vh .5vw;
-
+  box-shadow: 2px 2px 4px rgba(0,0,0,.3);
 }
 
 .submit:hover {
@@ -388,20 +399,83 @@ h2 {
   color: white;
   transition-duration: .3s;
   border: 1px solid #43A5CF;
-  box-shadow: 2px 2px 4px rgba(0,0,0,.3);
 }
 
 .submit:active {
   background-color: #215267;
+  box-shadow: none;
+}
+
+#profile-options {
+  margin-top: 12vh;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  padding: 1vh 1vw;
+  /*background: -webkit-linear-gradient(#efefef, white);
+  background: -o-linear-gradient(#efefef, white);
+  background: -moz-linear-gradient(#efefef, white);
+  background: linear-gradient(#f9f9f9, white);*/
+  font-size: .9em;
+  border-top: 1px solid #efefef;
+  text-transform: uppercase;
+}
+
+.profile-options-labels {
+  padding: 1vh 2vw;
+}
+
+.profile-options-labels:hover {
+  transform: scale(1.5);
+  transition-duration: .5s;
+}
+
+.profile-options-labels:active {
+    color: #215267;
+}
+
+table {
+  margin: auto;
+  width: 60%;
+  overflow: auto;
+}
+
+table th {
+  background-color: #43A5CF;
+  color: white;
+}
+
+table th, td {
+  padding: 1vh 1vw;
+}
+
+table tr:nth-of-type(even) {
+  background-color: #efefef;
+  padding: 1vh 1vw;
+}
+
+.dashboard-article {
+  min-height: 90vh;
+  height: 100%;
+}
+
+footer {
+  padding: 2vh 1vw;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: .6em;
+  border-top: 1px solid #efefef;
 }
 
 @media (max-width: 768px) and (orientation: portrait) {
-  #ladyLiberty {
-    background-size: cover;
+  body {
+    font-size: 1em;
   }
 
-  #ladyLiberty span {
-    font-size: 1.5vh;
+  #ladyLiberty {
+    background-size: cover;
   }
 
   .coffee-input-forms {
