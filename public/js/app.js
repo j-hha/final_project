@@ -27,12 +27,16 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 
   // modals logic --------------------------------------------------------------
   this.openModal = function(element) {
+    $('.modal-form').hide()
+    $('.modal').show()
     $('#' + element).show();
   };
 
   this.closeModal = function(element) {
+    $('.modal').hide()
     $('#' + element).hide();
-  }
+  };
+
   // modals end ----------------------------------------------------------------
 
   // login functionality -------------------------------------------------------

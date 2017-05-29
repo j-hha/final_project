@@ -24,6 +24,7 @@
     <!-- DIRECTIVES and respective CONTROLLERS-->
     <script src="js/controllers/split-screen.js" charset="utf-8"></script>
     <script src="js/directives/split-screen.js" charset="utf-8"></script>
+    <script src="js/directives/sign-up.js" charset="utf-8"></script>
     <script src="js/directives/log-in.js" charset="utf-8"></script>
     <script src="js/controllers/profile.js" charset="utf-8"></script>
     <script src="js/directives/profile.js" charset="utf-8"></script>
@@ -60,13 +61,19 @@
           <span>society</span>
         </span>
       </div>
-      <span ng-if="currentUser===false" ng-click="ctrl.openModal('log-in-modal')">log in</span>
+      <span>
+        <span ng-if="currentUser===false" ng-click="ctrl.openModal('sign-up-modal')">sign up</span>
+        <span>|</span>
+        <span ng-if="currentUser===false" ng-click="ctrl.openModal('log-in-modal')">log in</span>
+      </span>
       <span ng-if="currentUser===true" ng-click="ctrl.logout()">log out</span>
     </nav>
     <main ng-view></main>
     <footer>Created by GA student Hanna Hauck</footer>
     <!-- modals -->
-    <log-in ng-if="currentUser===false"><log-in>
-    <sign-up><sign-up>
+    <section class="modal" ng-if="currentUser===false">
+      <sign-up></sign-up>
+      <log-in></log-in>
+    </section>
   </body>
 </html>

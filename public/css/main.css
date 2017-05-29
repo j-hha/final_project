@@ -453,6 +453,7 @@ footer {
   padding: 4vh 4vw;
   border-radius: 5px;
   box-shadow: 3px 3px 6px rgba(0,0,0,.5);
+  min-width: 50%;
 }
 
 .modal-form i {
@@ -476,6 +477,30 @@ footer {
 .modal-form p {
   text-align: center;
 }
+
+.modal-form .submit {
+  display: block;
+  margin: 3vh auto 0 auto;
+}
+
+.modal-form label {
+  display: inline-block;
+  width: 48%;
+}
+
+.modal-form fieldset input:not(.submit) {
+  display: inline-block;
+  width: 48%;
+}
+
+#log-in-modal {
+  display: none;
+}
+
+#sign-up-modal {
+  display: none;
+}
+
 
 @keyframes fade-in {
   from { opacity: 0; }

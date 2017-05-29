@@ -1,0 +1,19 @@
+<!-- <section class="modal"> -->
+  <form class="modal-form" id="sign-up-modal" ng-submit="ctrl.signup(signupData)">
+    <i class="fa fa-times" aria-hidden="true" ng-click="ctrl.closeModal('sign-up-modal')"></i>
+    <fieldset>
+      <legend>Sign Up</legend>
+      <label for="username">username</label>
+      <input id="username" type="text" ng-model="signupData.username" placeholder="username">
+      <br>
+      <label for="password">password</label>
+      <input id="password" type="password" ng-model="signupData.password" placeholder="password">
+      <br>
+      <label for="password">confirm your password</label>
+      <input id="password" type="password" ng-model="signupData.confirmPassword" placeholder="password">
+      <br>
+      <input type="submit" class="submit">
+    </fieldset>
+    <p>{{signupData.msg}}</p>
+  </form>
+<!-- </section> -->
