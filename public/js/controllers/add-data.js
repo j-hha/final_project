@@ -1,5 +1,7 @@
 angular.module('CoffeeApp').controller('addDataController', ['$scope', '$http', function($scope, $http) {
   // tab functionality ---------------------------------------------------------
+  $scope.availablePurchases();
+
   this.tabs = {
     tab1: true,
     tab2: false,
@@ -42,7 +44,10 @@ angular.module('CoffeeApp').controller('addDataController', ['$scope', '$http', 
       url: $scope.baseUrl + 'servings',
       data: {
         serving: newServing
-      }
+      },
+      headers: {
+         Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+       }
     }).then(
       response => {console.log(response);} ,
       error => {console.log(error);}
@@ -67,7 +72,10 @@ angular.module('CoffeeApp').controller('addDataController', ['$scope', '$http', 
       url: $scope.baseUrl + 'purchases',
       data: {
         purchase: newPurchase
-      }
+      },
+      headers: {
+         Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+       }
     }).then(
       response => {
         if (response.data.status = 201) {
@@ -105,7 +113,10 @@ angular.module('CoffeeApp').controller('addDataController', ['$scope', '$http', 
       url: $scope.baseUrl + 'purchases',
       data: {
         purchase: newPurchase
-      }
+      },
+      headers: {
+         Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+       }
     }).then(
       response => {
         if (response.data.status = 201) {
