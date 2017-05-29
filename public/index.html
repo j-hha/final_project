@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>coffee compass</title>
     <!-- LIBRARIES / FRAMEWORKS-->
     <!-- jQuery -->
     <script
@@ -37,8 +37,8 @@
   </head>
   <body ng-controller="mainCtrl as ctrl">
     <nav>
-      <h1><a href="/">{{ctrl.title}}</a></h1>
-      <div class="" ng-if="currentUser===true">
+      <h1><a href="/">coffee compass</a></h1>
+      <div class="" ng-if="checkUser()">
         <span><a href="/my-dashboard">
             <i class="fa fa-tachometer fa-2x" aria-hidden="true"></i>
             <span>dashboard</span>
@@ -62,15 +62,15 @@
         </span>
       </div>
       <span>
-        <span ng-if="currentUser===false" ng-click="ctrl.openModal('sign-up-modal')">sign up |</span>
-        <span ng-if="currentUser===false" ng-click="ctrl.openModal('log-in-modal')">log in</span>
+        <a href="#" ng-hide="checkUser()" ng-click="ctrl.openModal('sign-up-modal')">sign up |</a>
+        <a href="#" ng-hide="checkUser()" ng-click="ctrl.openModal('log-in-modal')">log in</a>
+        <a href="#" ng-show="checkUser()" ng-click="ctrl.logout()">log out</a>
       </span>
-      <span ng-if="currentUser===true" ng-click="ctrl.logout()">log out</span>
     </nav>
     <main ng-view></main>
     <footer>Created by GA student Hanna Hauck</footer>
     <!-- modals -->
-    <section class="modal" ng-if="currentUser===false">
+    <section class="modal" ng-if="!currentUser">
       <sign-up></sign-up>
       <log-in></log-in>
     </section>

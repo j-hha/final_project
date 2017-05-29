@@ -3,17 +3,35 @@ const app = angular.module('CoffeeApp', ['ngRoute']);
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   $locationProvider.html5Mode({ enabled: true });
 
-  $routeProvider.when('/my-dashboard', {
+  $routeProvider.when('/', {
+    resolve: {
+        authenticate: function($location, $rootScope) {
+            if($rootScope.currentUser) {
+              $location.path('/my-dashboard');
+            }
+          }
+      },
+      templateUrl: '../partials/splash-page.html',
+      controller: 'mainCtrl',
+      controllerAs: 'ctrl',
+  }).when('/my-dashboard', {
+    resolve: {
+      authenticate: function($location, $rootScope) {
+          if(!$rootScope.currentUser) {
+            $location.path('/');
+          }
+        }
+    },
     templateUrl: '../partials/dashboard.html',
     controller: 'dashboardController',
-    controllerAs: 'dashboardCtrl'
+    controllerAs: 'dashboardCtrl',
   }).otherwise({
     redirectTo: '/',
     templateUrl: '../partials/splash-page.html',
     controller: 'mainCtrl',
     controllerAs: 'ctrl'
   });
-}]).controller('mainCtrl', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
+}]).controller('mainCtrl', ['$rootScope', '$scope', '$routeParams', '$http', '$location', function($rootScope, $scope, $routeParams, $http, $location) {
   this.title = 'Page Title';
   $scope.baseUrl = 'http://localhost:3000/';
   $scope.currentUser = false;
@@ -41,17 +59,17 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 
   // login functionality -------------------------------------------------------
 
-  $scope.currentUser = false;
+  $rootScope.currentUser = false;
 
-  $scope.checkUser = function() {
+  $rootScope.checkUser = function() {
     var jwt = JSON.parse(localStorage.getItem('token'));
     if (jwt) {
       console.log('logged in user');
-      $scope.currentUser = true;
+      $rootScope.currentUser = true;
       return true;
     } else {
       console.log('no logged in user');
-      $scope.currentUser = false;
+      $rootScope.currentUser = false;
       return false;
     }
   };
@@ -71,14 +89,15 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
           loginData.username = '';
           loginData.password = '';
           this.closeModal('log-in-modal');
-          $scope.checkUser();
+          $rootScope.checkUser();
+          $location.path('/my-dashboard');
         } else if (response.data.status === 401) {
-          $scope.checkUser();
+          $rootScope.checkUser();
           loginData.username = '';
           loginData.password = '';
           loginData.msg = "Sorry, the username and/or password you entered don't match our records.";
         } else {
-          $scope.checkUser();
+          $rootScope.checkUser();
           loginData.username = '';
           loginData.password = '';
           loginData.msg = "Sorry, something went wrong!";
@@ -99,7 +118,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     localStorage.clear('token');
     localStorage.clear('username');
     localStorage.clear('id');
-    $scope.checkUser();
+    $rootScope.checkUser();
     location.reload();
   };
   // log out functionality end -------------------------------------------------
@@ -176,6 +195,6 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     }
   };
 
-  $scope.checkUser();
+  $rootScope.checkUser();
   // paper cup counter logic end -----------------------------------------------
 }]);
