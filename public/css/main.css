@@ -116,9 +116,10 @@ article {
 #promt h1 {
   margin: 40vh auto;
   display: inline-block;
-  border: 1px solid black;
+  border: 1px solid #43A5CF;
   border-radius: 3px;
   padding: 1vh 1vw;
+  color: #43A5CF;
 }
 
 #promt h1:hover {
@@ -143,17 +144,24 @@ article {
 
 .statistics {
   width: 50%;
-  background-color: #f6f6f6;
+  border-left: 1vmin solid white;
+  background-color: #fcfcfc;
+  border-top: 5px solid white;
+}
+
+.statistics:first-of-type{
+  background-color: #fcfcfc;
   background: -webkit-linear-gradient(white, #f6f6f6, #f6f6f6);
   background: -o-linear-gradient(white, #f6f6f6, #f6f6f6);
   background: -moz-linear-gradient(white, #f6f6f6, #f6f6f6);
-  background: linear-gradient(white, #f6f6f6, #f6f6f6);
-  border-left: 1vmin solid white;
+  background: linear-gradient(white, #fcfcfc, #fcfcfc);
 }
 
 .user-data {
+  border-top: 5px solid white;
   width: 50%;
   border-right: 1vmin solid white;
+  border-top: 5px solid white;
 }
 
 /*.split-screen article {
