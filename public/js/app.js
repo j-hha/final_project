@@ -36,27 +36,69 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   // modals end ----------------------------------------------------------------
 
   // login functionality -------------------------------------------------------
+
+  $scope.currentUser = false;
+
+  $scope.checkUser = function() {
+    var jwt = JSON.parse(localStorage.getItem('token'));
+    if (jwt) {
+      console.log('logged in user');
+      $scope.currentUser = true;
+      return true;
+    } else {
+      console.log('no logged in user');
+      $scope.currentUser = false;
+      return false;
+    }
+  };
+
   this.login = function(loginData) {
+    loginData.msg = '';
     $http({
       method: 'POST',
       url: $scope.baseUrl + 'users/login',
-      data: loginData
+      data: { user: loginData }
     }).then(
       response => {
-        console.log(response);
-        if (response.data === 200) {
-          loginData.msg = "Welcome!";
+        if (response.data.status === 200) {
+          localStorage.setItem('token', JSON.stringify(response.data.token));
+          localStorage.setItem('username', JSON.stringify(response.data.user.username));
+          localStorage.setItem('id', JSON.stringify(response.data.user.id));
+          loginData.username = '';
+          loginData.password = '';
+          this.closeModal('log-in-modal');
+          $scope.checkUser();
+        } else if (response.data.status === 401) {
+          $scope.checkUser();
+          loginData.username = '';
+          loginData.password = '';
+          loginData.msg = "Sorry, the username and/or password you entered don't match our records.";
         } else {
+          $scope.checkUser();
+          loginData.username = '';
+          loginData.password = '';
           loginData.msg = "Sorry, something went wrong!";
         }
       },
       error => {
-        console.log(error);
+      console.log(error);
+      $scope.checkUser();
+      loginData.username = '';
+      loginData.password = '';
       loginData.msg = "Sorry, something went wrong!";
-    }
-    );
+    });
   };
   // login functionality end ---------------------------------------------------
+
+  // log out functionality end ---------------------------------------------------
+  this.logout = function() {
+    localStorage.clear('token');
+    localStorage.clear('username');
+    localStorage.clear('id');
+    $scope.checkUser();
+    location.reload();
+  };
+  // log out functionality end ---------------------------------------------------
 
   // paper cup counter logic ---------------------------------------------------
   this.numOfPaperCups = 0;
@@ -83,5 +125,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
       $('#paperCupTowerLabel').removeClass("percentageGreater100");
     }
   };
+
+  $scope.checkUser();
   // paper cup counter logic end -----------------------------------------------
 }]);

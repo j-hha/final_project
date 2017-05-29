@@ -37,7 +37,7 @@
   <body ng-controller="mainCtrl as ctrl">
     <nav>
       <h1><a href="/">{{ctrl.title}}</a></h1>
-      <div class="">
+      <div class="" ng-if="currentUser===true">
         <span><a href="/my-dashboard">
             <i class="fa fa-tachometer fa-2x" aria-hidden="true"></i>
             <span>dashboard</span>
@@ -60,12 +60,13 @@
           <span>society</span>
         </span>
       </div>
-      <span ng-click="ctrl.openModal('log-in-modal')">log in / out</span>
+      <span ng-if="currentUser===false" ng-click="ctrl.openModal('log-in-modal')">log in</span>
+      <span ng-if="currentUser===true" ng-click="ctrl.logout()">log out</span>
     </nav>
     <main ng-view></main>
     <footer>Created by GA student Hanna Hauck</footer>
     <!-- modals -->
-    <log-in><log-in>
+    <log-in ng-if="currentUser===false"><log-in>
     <sign-up><sign-up>
   </body>
 </html>
