@@ -62,8 +62,7 @@
         </span>
       </div>
       <span>
-        <span ng-if="currentUser===false" ng-click="ctrl.openModal('sign-up-modal')">sign up</span>
-        <span>|</span>
+        <span ng-if="currentUser===false" ng-click="ctrl.openModal('sign-up-modal')">sign up |</span>
         <span ng-if="currentUser===false" ng-click="ctrl.openModal('log-in-modal')">log in</span>
       </span>
       <span ng-if="currentUser===true" ng-click="ctrl.logout()">log out</span>

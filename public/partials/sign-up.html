@@ -4,13 +4,13 @@
     <fieldset>
       <legend>Sign Up</legend>
       <label for="username">username</label>
-      <input id="username" type="text" ng-model="signupData.username" placeholder="username">
+      <input id="username" type="text" ng-model="signupData.username" placeholder="username" required>
       <br>
       <label for="password">password</label>
-      <input id="password" type="password" ng-model="signupData.password" placeholder="password">
+      <input id="password" type="password" ng-model="signupData.password" placeholder="password" minlength="6" required>
       <br>
       <label for="password">confirm your password</label>
-      <input id="password" type="password" ng-model="signupData.confirmPassword" placeholder="password">
+      <input id="password" type="password" ng-model="signupData.confirmPassword" placeholder="password" minlength="6" required>
       <br>
       <input type="submit" class="submit">
     </fieldset>

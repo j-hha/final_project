@@ -279,9 +279,6 @@ h2 {
   width: 50%;
   margin: 0 auto;
   padding: 3vh 2vw;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
 }
 
 .coffee-input-forms fieldset {
@@ -317,12 +314,6 @@ h2 {
   font-family: 'Lato', sans-serif;
 }
 
-/*.coffee-input-forms input[type="checkbox"] {
-  margin: 2vh auto;
-  display: inline-block;
-  border: 5px solid deeppink;
-}*/
-
 .coffee-input-forms input[type="number"] {
   margin: 1vh auto 0 auto;
   display: inline-block;
@@ -347,8 +338,6 @@ h2 {
 .coffee-input-form-labels li {
   list-style: none;
   padding: 1vh 2vw;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
   margin-right: .5vw;
 }
 

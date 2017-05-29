@@ -94,7 +94,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   };
   // login functionality end ---------------------------------------------------
 
-  // log out functionality end ---------------------------------------------------
+  // log out functionality end -------------------------------------------------
   this.logout = function() {
     localStorage.clear('token');
     localStorage.clear('username');
@@ -102,7 +102,53 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     $scope.checkUser();
     location.reload();
   };
-  // log out functionality end ---------------------------------------------------
+  // log out functionality end -------------------------------------------------
+
+  // sign up functionality end -------------------------------------------------
+  this.signup = function(signupData) {
+    if (signupData.password === signupData.confirmPassword) {
+      console.log(signupData);
+      $http({
+        method: 'POST',
+        url: $scope.baseUrl + '/users',
+        data: {
+          user: {
+            username: signupData.username,
+            password: signupData.password
+          }
+        }
+      }).then(
+        response => {
+          if (response.data.status === 201) {
+            console.log(response.data);
+            signupData.username = '';
+            signupData.password = '';
+            signupData.confirmPassword = '';
+            signupData.msg = 'Thank you, ' + response.data.user.username + '. You account has been created.'
+          } else {
+            console.log(response);
+            signupData.username = '';
+            signupData.password = '';
+            signupData.confirmPassword = '';
+            signupData.msg = 'Sorry, something went wrong!'
+          }
+        },
+        error => {
+          console.log(error);
+          signupData.username = '';
+          signupData.password = '';
+          signupData.confirmPassword = '';
+          signupData.msg = 'Sorry, something went wrong!'
+        }
+      )
+    } else {
+      signupData.username = '';
+      signupData.password = '';
+      signupData.confirmPassword = '';
+      signupData.msg = 'Sorry, the passwords you entered did not match.'
+    }
+  };
+  // sign up functionality end -------------------------------------------------
 
   // paper cup counter logic ---------------------------------------------------
   this.numOfPaperCups = 0;
