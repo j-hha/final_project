@@ -25,6 +25,39 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   $scope.allPurchases = [];
   // coffee data end -----------------------------------------------------------
 
+  // modals logic --------------------------------------------------------------
+  this.openModal = function(element) {
+    $('#' + element).show();
+  };
+
+  this.closeModal = function(element) {
+    $('#' + element).hide();
+  }
+  // modals end ----------------------------------------------------------------
+
+  // login functionality -------------------------------------------------------
+  this.login = function(loginData) {
+    $http({
+      method: 'POST',
+      url: $scope.baseUrl + 'users/login',
+      data: loginData
+    }).then(
+      response => {
+        console.log(response);
+        if (response.data === 200) {
+          loginData.msg = "Welcome!";
+        } else {
+          loginData.msg = "Sorry, something went wrong!";
+        }
+      },
+      error => {
+        console.log(error);
+      loginData.msg = "Sorry, something went wrong!";
+    }
+    );
+  };
+  // login functionality end ---------------------------------------------------
+
   // paper cup counter logic ---------------------------------------------------
   this.numOfPaperCups = 0;
   this.paperCupTower = 0;

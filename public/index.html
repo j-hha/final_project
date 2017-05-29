@@ -24,6 +24,7 @@
     <!-- DIRECTIVES and respective CONTROLLERS-->
     <script src="js/controllers/split-screen.js" charset="utf-8"></script>
     <script src="js/directives/split-screen.js" charset="utf-8"></script>
+    <script src="js/directives/log-in.js" charset="utf-8"></script>
     <script src="js/controllers/profile.js" charset="utf-8"></script>
     <script src="js/directives/profile.js" charset="utf-8"></script>
     <script src="js/controllers/all-data.js" charset="utf-8"></script>
@@ -37,9 +38,10 @@
     <nav>
       <h1><a href="/">{{ctrl.title}}</a></h1>
       <div class="">
-        <span>
+        <span><a href="/my-dashboard">
             <i class="fa fa-tachometer fa-2x" aria-hidden="true"></i>
             <span>dashboard</span>
+          </a>
         </span>
         <span>
             <i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i>
@@ -58,9 +60,12 @@
           <span>society</span>
         </span>
       </div>
-      <span><a href="/my-dashboard">log in / out</a></span>
+      <span ng-click="ctrl.openModal('log-in-modal')">log in / out</span>
     </nav>
     <main ng-view></main>
     <footer>Created by GA student Hanna Hauck</footer>
+    <!-- modals -->
+    <log-in><log-in>
+    <sign-up><sign-up>
   </body>
 </html>

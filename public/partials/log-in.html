@@ -1,0 +1,14 @@
+<section class="modal" id="log-in-modal">
+  <form class="modal-form" ng-submit="ctrl.login(loginData)">
+    <i class="fa fa-times" aria-hidden="true" ng-click="ctrl.closeModal('log-in-modal')"></i>
+    <fieldset>
+      <legend>Log in</legend>
+      <label for="username"></label>
+      <input id="username" type="text" ng-model="loginData.username" placeholder="username">
+      <label for="password"></label>
+      <input id="password" type="password" ng-model="loginData.password" placeholder="password">
+      <input type="submit" class="submit">
+    </fieldset>
+    <p>{{ctrl.message}}</p>
+  </form>
+</section>
