@@ -87,6 +87,18 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     allServings: [],
   };
 
+  $scope.updateByBagAndByCup = function() {
+    $scope.coffeeData.byBag = [];
+    $scope.coffeeData.byCup = [];
+    for (let i = 0; i < $scope.coffeeData.allPurchases.length; i++) {
+      if ($scope.coffeeData.allPurchases[i].by_cup === false) {
+        $scope.coffeeData.byBag.push($scope.coffeeData.allPurchases[i]);
+      } else if ($scope.coffeeData.allPurchases.by_cup === true) {
+        $scope.coffeeData.byCup.push($scope.coffeeData.allPurchases[i]);
+      }
+    }
+  };
+
   // $scope.saveCoffeeData = function() {
   //   if (JSON.parse(localStorage.getItem('servings')) && JSON.parse(localStorage.getItem('purchases'))) {
   //     $scope.coffeeData.allServings = JSON.parse(localStorage.getItem('servings'));
@@ -124,15 +136,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         // localStorage.setItem('purchases', JSON.stringify(response.data));
         // console.log('purchases', JSON.parse(localStorage.getItem('purchases')));
         $scope.coffeeData.allPurchases = response.data;
-        $scope.coffeeData.byBag = [];
-        $scope.coffeeData.byCup = [];
-        for (let i = 0; i < $scope.coffeeData.allPurchases.length; i++) {
-          if ($scope.coffeeData.allPurchases[i].by_cup === false) {
-            $scope.coffeeData.byBag.push($scope.coffeeData.allPurchases[i]);
-          } else if ($scope.coffeeData.allPurchases.by_cup === true) {
-            $scope.coffeeData.byCup.push($scope.coffeeData.allPurchases[i]);
-          }
-        }
+        $scope.updateByBagAndByCup();
         $scope.getServings();
       },
       error => {

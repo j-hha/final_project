@@ -46,16 +46,8 @@ angular.module('CoffeeApp')
             console.log('not found!');
           }
 
-          // UPDATE BY BAG // BY CUP
-          $scope.coffeeData.byBag = [];
-          $scope.coffeeData.byCup = [];
-          for (let i = 0; i < $scope.coffeeData.allPurchases.length; i++) {
-            if ($scope.coffeeData.allPurchases[i].by_cup === false) {
-              $scope.coffeeData.byBag.push($scope.coffeeData.allPurchases[i]);
-            } else if ($scope.coffeeData.allPurchases.by_cup === true) {
-              $scope.coffeeData.byCup.push($scope.coffeeData.allPurchases[i]);
-            }
-          }
+          // UPDATE BY BAG // BY CUP // UPDATE ADD DATA VIEW
+          $scope.updateByBagAndByCup();
           $scope.availablePurchasesbyBag();
 
         } else {
@@ -123,16 +115,8 @@ angular.module('CoffeeApp')
             console.log('  nothing found');
           }
 
-          // UPDATE BY BAG // BY CUP
-          $scope.coffeeData.byBag = [];
-          $scope.coffeeData.byCup = [];
-          for (let i = 0; i < $scope.coffeeData.allPurchases.length; i++) {
-            if ($scope.coffeeData.allPurchases[i].by_cup === false) {
-              $scope.coffeeData.byBag.push($scope.coffeeData.allPurchases[i]);
-            } else if ($scope.coffeeData.allPurchases.by_cup === true) {
-              $scope.coffeeData.byCup.push($scope.coffeeData.allPurchases[i]);
-            }
-          }
+          // UPDATE BY BAG // BY CUP // UPDATE ADD DATA VIEW
+          $scope.updateByBagAndByCup();
           $scope.availablePurchasesbyBag();
         }
       },
