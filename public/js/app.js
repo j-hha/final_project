@@ -33,16 +33,8 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     controllerAs: 'ctrl'
   });
 }]).controller('mainCtrl', ['$rootScope', '$scope', '$routeParams', '$http', '$location', function($rootScope, $scope, $routeParams, $http, $location) {
-  this.title = 'Page Title';
-  $scope.baseUrl = 'http://localhost:3000/';
-  $scope.currentUser = false;
 
-  // coffee data ---------------------------------------------------------------
-  $scope.coffeeServings = [];
-  $scope.coffeePurchasesByCup = [];
-  $scope.coffeePurchasesByBag = [];
-  $scope.allPurchases = [];
-  // coffee data end -----------------------------------------------------------
+  $scope.baseUrl = 'http://localhost:3000/';
 
   // modals logic --------------------------------------------------------------
   this.openModal = function(element) {
@@ -75,6 +67,100 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     }
   };
 
+  $rootScope.checkUser();
+
+  // ********  functions for getting back data from localStorage ********
+  // check if user has entered data for coffe purchased by bag to decide if
+  // option to add data for homemade coffee should be displayed
+  $scope.availablePurchasesbyBag = function() {
+    if ($scope.coffeeData.byBag.length > 0) {
+      $('#tab3').css('display', 'block');
+    } else {
+      $('#tab3').css('display', 'none');
+    }
+  };
+
+  $scope.coffeeData = {
+    allPurchases: [],
+    byBag: [],
+    byCup: [],
+    allServings: [],
+  };
+
+  // $scope.saveCoffeeData = function() {
+  //   if (JSON.parse(localStorage.getItem('servings')) && JSON.parse(localStorage.getItem('purchases'))) {
+  //     $scope.coffeeData.allServings = JSON.parse(localStorage.getItem('servings'));
+  //     console.log('servings saveCoffeeData', $scope.coffeeData.allServings);
+  //     $scope.coffeeData.allPurchases = JSON.parse(localStorage.getItem('purchases'));
+  //     console.log('purchases saveCoffeeData', $scope.coffeeData.allPurchases);
+  //     $scope.coffeeData.byBag = [];
+  //     $scope.coffeeData.byCup = [];
+  //     for (let i = 0; i < $scope.coffeeData.allPurchases.length; i++) {
+  //       if ($scope.coffeeData.allPurchases[i].by_cup === false) {
+  //         $scope.coffeeData.byBag.push($scope.coffeeData.allPurchases[i]);
+  //       } else if ($scope.coffeeData.allPurchases.by_cup === true) {
+  //         $scope.coffeeData.byCup.push($scope.coffeeData.allPurchases[i]);
+  //       }
+  //     }
+  //     console.log('bags', $scope.coffeeData.byBag);
+  //     console.log('cups', $scope.coffeeData.byCup);
+  //     $scope.availablePurchasesbyBag();
+  //   }
+  // };
+
+// ******** get request for purchases and servings data ********
+
+  $scope.getPurchases = function() {
+    // http get request for data --> should happen only once on LOGIN!!!
+    $http({
+      method: 'GET',
+      url: $scope.baseUrl + 'purchases',
+      headers: {
+         Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+       }
+    }).then(
+      response => {
+        console.log(response);
+        // localStorage.setItem('purchases', JSON.stringify(response.data));
+        // console.log('purchases', JSON.parse(localStorage.getItem('purchases')));
+        $scope.coffeeData.allPurchases = response.data;
+        $scope.coffeeData.byBag = [];
+        $scope.coffeeData.byCup = [];
+        for (let i = 0; i < $scope.coffeeData.allPurchases.length; i++) {
+          if ($scope.coffeeData.allPurchases[i].by_cup === false) {
+            $scope.coffeeData.byBag.push($scope.coffeeData.allPurchases[i]);
+          } else if ($scope.coffeeData.allPurchases.by_cup === true) {
+            $scope.coffeeData.byCup.push($scope.coffeeData.allPurchases[i]);
+          }
+        }
+        $scope.getServings();
+      },
+      error => {
+        console.log(error);
+      });
+  };
+
+  $scope.getServings = function() {
+    $http({
+      method: 'GET',
+      url: $scope.baseUrl + 'servings',
+      headers: {
+         Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+       }
+    }).then(
+      response => {
+        console.log(response);
+        $scope.coffeeData.allServings = response.data.servings;
+        // localStorage.setItem('servings', JSON.stringify(response.data.servings));
+        // console.log('servings', JSON.parse(localStorage.getItem('servings')));
+        // $scope.saveCoffeeData();
+        $scope.availablePurchasesbyBag();
+      },
+      error => {
+        console.log(error);
+      });
+  };
+
   this.login = function(loginData) {
     loginData.msg = '';
     $http({
@@ -92,6 +178,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
           this.closeModal('log-in-modal');
           $rootScope.checkUser();
           $location.path('/my-dashboard');
+          $scope.getPurchases();
         } else if (response.data.status === 401) {
           $rootScope.checkUser();
           loginData.username = '';
@@ -119,6 +206,8 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     localStorage.clear('token');
     localStorage.clear('username');
     localStorage.clear('id');
+    localStorage.clear('servings');
+    localStorage.clear('purchases');
     $rootScope.checkUser();
     location.reload();
   };
@@ -198,15 +287,4 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 
   // paper cup counter logic end -----------------------------------------------
 
-  $rootScope.checkUser();
-  // check if user has entered data for coffe purchased by bag to decide if
-  // option to add data for homemade coffee should be displayed
-    $scope.availablePurchases = function() {
-      if ($scope.coffeePurchasesByBag.length > 0) {
-        $('#tab3').css('display', 'block');
-      } else {
-        $('#tab3').css('display', 'none');
-        console.log('raaahhh');
-      }
-    }
 }]);

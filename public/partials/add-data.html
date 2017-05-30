@@ -81,7 +81,7 @@
         <label for="purchase">from bag</label>
         <select id="purchase" name="purchase_id" ng-model="newServing.purchase_id" required>
           <option value="">---Please select---</option>
-          <option ng-repeat="purchase in coffeePurchasesByBag" value="{{purchase.id}}">{{purchase.brand}}, {{purchase.date}}</option>
+          <option ng-repeat="purchase in coffeeData.byBag" value="{{purchase.id}}">{{purchase.brand}}, {{purchase.date}}</option>
         </select>
         <br>
         <input type="submit" class="submit">

@@ -1,6 +1,5 @@
 angular.module('CoffeeApp').controller('addDataController', ['$scope', '$http', function($scope, $http) {
   // tab functionality ---------------------------------------------------------
-  $scope.availablePurchases();
 
   this.tabs = {
     tab1: true,
@@ -20,15 +19,6 @@ angular.module('CoffeeApp').controller('addDataController', ['$scope', '$http', 
     }
   };
 
-  // this.availablePurchases = function() {
-  //   if ($scope.coffeePurchasesByBag.length > 0) {
-  //     $('#tab3').css('display', 'block');
-  //   } else {
-  //     $('#tab3').css('display', 'none');
-  //   }
-  // }
-  //
-  // this.availablePurchases();
   // tab functionality end -----------------------------------------------------
 
   // functionality for adding coffee consumption and purchase data -------------
@@ -49,7 +39,15 @@ angular.module('CoffeeApp').controller('addDataController', ['$scope', '$http', 
          Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
        }
     }).then(
-      response => {console.log(response);} ,
+      response => {
+        console.log(response);
+        if (response.data.status = 201) {
+          $scope.coffeeData.allServings.push(response.data.serving)
+          // $localStorage.setItem('servings', JSON.stringify($scope.coffeeData.allServings));
+        } else {
+          console.log(response.data);
+        }
+      },
       error => {console.log(error);}
     );
   };
@@ -80,19 +78,33 @@ angular.module('CoffeeApp').controller('addDataController', ['$scope', '$http', 
       response => {
         if (response.data.status = 201) {
           console.log('success: ', response.data.purchase);
+          $scope.coffeeData.allPurchases.push(response.data.purchase);
+          $scope.coffeeData.by_cup.push(response.data.purchase);
+          // $localStorage.setItem('purchases', JSON.stringify($scope.coffeeData.allPurchases));
           //on success: http post request to servings
           $http({
             method: 'POST',
             url: $scope.baseUrl + 'servings',
             data: {
               serving: newServing
-            }
+            },
+            headers: {
+               Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+             }
           }).then(
-            response => {console.log(response);} ,
+            response => {
+              console.log(response);
+              if (response.data.status = 201) {
+                $scope.coffeeData.allServings.push(response.data.serving)
+                // $localStorage.setItem('servings', JSON.stringify($scope.coffeeData.allServings));
+              } else {
+                console.log(response.data);
+              }
+            } ,
             error => {console.log(error);}
           );
         } else {
-          console.log(response.data.status);
+          console.log(response.data);
         }
       },
       error => console.log(error)
@@ -119,18 +131,17 @@ angular.module('CoffeeApp').controller('addDataController', ['$scope', '$http', 
        }
     }).then(
       response => {
+        console.log('success: ', response.data);
         if (response.data.status = 201) {
-          $scope.coffeePurchasesByBag.push(response.data.purchase);
-          console.log('success: ', response.data.purchase);
-          console.log($scope.coffeePurchasesByBag);
-          $scope.availablePurchases();
+          $scope.coffeeData.byBag.push(response.data.purchase);
+          // localStorage.setItem('purchases', JSON.stringify($scope.coffeeData.allServings));
+          $scope.availablePurchasesbyBag();
         } else {
-          console.log(response.data.status);
+          console.log(response.data);
         }
       },
       error => console.log(error)
     );
   };
   // functionality for adding coffee consumption and purchase data end ---------
-
 }]);

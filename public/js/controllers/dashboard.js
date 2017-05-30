@@ -26,4 +26,5 @@ angular.module('CoffeeApp')
     }
   };
 
+  $scope.getPurchases();
 }]);

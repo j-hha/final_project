@@ -11,7 +11,7 @@
       <th>paper cup</th>
       <th><i class="fa fa-trash-o" aria-hidden="true"></i></th>
     </tr>
-    <tr ng-repeat="serving in coffeeServings | orderBy: 'serving.date':true track by $index">
+    <tr ng-repeat="serving in coffeeData.allServings | limitTo:30 track by $index">
       <td>{{serving.date}}</td>
       <td>{{serving.beverage_type}}</td>
       <td>{{serving.caffeine}}</td>
@@ -19,7 +19,7 @@
       <td>{{serving.sugar}}</td>
       <td>{{serving.fat}}</td>
       <td>{{serving.disposable_cup}}</td>
-      <td>DELETE</td>
+      <td class='delete' ng-click="allData.deleteServing(serving)">REMOVE</td>
     </tr>
   </table>
 </section>
@@ -34,13 +34,14 @@
       <th>fair trade</th>
       <th><i class="fa fa-trash-o" aria-hidden="true"></i></th>
     </tr>
-    <tr ng-repeat="purchase in allPurchases | orderBy: 'purchase.date':true track by $index">
+    <tr ng-repeat="purchase in coffeeData.allPurchases | limitTo:30 track by $index">
       <td>{{purchase.date}}</td>
       <td>{{purchase.brand}}</td>
       <td>{{purchase.price}}</td>
       <td>{{purchase.rating}}</td>
       <td>{{purchase.fair_trade}}</td>
-      <td>DELETE</td>
+      <td class='delete'>REMOVE</td>
     </tr>
   </table>
+</section>
 </section>

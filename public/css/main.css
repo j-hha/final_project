@@ -43,10 +43,11 @@ nav {
   z-index: 1;
   padding: 1vh 2vw;
   text-transform: uppercase;
+  box-shadow: 0 0 5px rgba(0,0,0,.1);
 }
 
 nav:hover {
-  box-shadow: 0 0 5px rgba(0,0,0,.1);
+  box-shadow: 0 0 5px rgba(0,0,0,.2);
   transition-duration: .4s;
   background-color: white;
 }
@@ -375,7 +376,7 @@ h2 {
   background: -moz-linear-gradient(#efefef, white);
   background: linear-gradient(#f9f9f9, white);*/
   font-size: .9em;
-  border-top: 1px solid #efefef;
+  /*border-top: 1px solid #efefef;*/
   text-transform: uppercase;
 }
 
@@ -396,6 +397,7 @@ table {
   margin: auto;
   width: 60%;
   overflow: auto;
+  text-align: center;
 }
 
 table th {
@@ -554,6 +556,25 @@ input[type="number"] {
 
 .submit:active {
   background-color: #215267;
+  box-shadow: none;
+}
+
+.delete {
+  background-color: white;
+  color: red;
+  border: 1px solid red;
+}
+
+.delete:hover {
+  background-color: red;
+  color: white;
+  box-shadow: 1px 1px 3px #808080;
+}
+
+.delete:active {
+  background-color: #ff7f7f;
+  border: 1px solid #ff7f7f;
+  color: white;
   box-shadow: none;
 }
 
