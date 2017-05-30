@@ -46,6 +46,18 @@ angular.module('CoffeeApp')
             console.log('not found!');
           }
 
+          // UPDATE BY BAG // BY CUP
+          $scope.coffeeData.byBag = [];
+          $scope.coffeeData.byCup = [];
+          for (let i = 0; i < $scope.coffeeData.allPurchases.length; i++) {
+            if ($scope.coffeeData.allPurchases[i].by_cup === false) {
+              $scope.coffeeData.byBag.push($scope.coffeeData.allPurchases[i]);
+            } else if ($scope.coffeeData.allPurchases.by_cup === true) {
+              $scope.coffeeData.byCup.push($scope.coffeeData.allPurchases[i]);
+            }
+          }
+          $scope.availablePurchasesbyBag();
+
         } else {
           console.log('Ooops, something went wrong.');
         }
@@ -68,7 +80,7 @@ angular.module('CoffeeApp')
         console.log(response);
         if (response.data.status === 204) {
           console.log(response.data);
-          // ############### removing data!
+          // ############### removing data from $scope.coffeeData.allPurchases!
           let indexDeletedPurchase = -1;
           console.log('all purchases', $scope.coffeeData.allPurchases);
           console.log('deleted: ', response.data.purchase);
@@ -89,7 +101,7 @@ angular.module('CoffeeApp')
           } else {
             console.log('nothing found');
           }
-          // ############### removing data!
+          // ############### removing data $scope.coffeeData.allServings!
           let indexDeletedServings = [];
 
           for (let i = 0; i < $scope.coffeeData.allServings.length; i++) {
@@ -110,6 +122,18 @@ angular.module('CoffeeApp')
           } else {
             console.log('  nothing found');
           }
+
+          // UPDATE BY BAG // BY CUP
+          $scope.coffeeData.byBag = [];
+          $scope.coffeeData.byCup = [];
+          for (let i = 0; i < $scope.coffeeData.allPurchases.length; i++) {
+            if ($scope.coffeeData.allPurchases[i].by_cup === false) {
+              $scope.coffeeData.byBag.push($scope.coffeeData.allPurchases[i]);
+            } else if ($scope.coffeeData.allPurchases.by_cup === true) {
+              $scope.coffeeData.byCup.push($scope.coffeeData.allPurchases[i]);
+            }
+          }
+          $scope.availablePurchasesbyBag();
         }
       },
       error => {
