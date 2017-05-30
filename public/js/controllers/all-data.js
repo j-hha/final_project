@@ -106,11 +106,11 @@ angular.module('CoffeeApp')
               console.log('index array', indexDeletedServings);
             }
           }
+
           if (indexDeletedServings.length > 0) {
-            indexDeletedServings.forEach(function(item, index) {
-              console.log('splicing');
-              $scope.coffeeData.allServings.splice(index, 1);
-            });
+            for (let i = indexDeletedServings.length-1; i >=0; i--) {
+              $scope.coffeeData.allServings.splice(indexDeletedServings[i], 1);
+            }
           } else {
             console.log('  nothing found');
           }
