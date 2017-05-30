@@ -14,21 +14,38 @@ angular.module('CoffeeApp')
         if (response.data.status === 204) {
           console.log(response.data);
           // remove deleted item from $scope.coffeeData.allServings array
-          let indexDeletedServing;
+          let indexDeletedServing = -1;
           for (let i = 0; i < $scope.coffeeData.allServings.length; i++) {
-            if ($scope.coffeeData.allServings[i] == response.data.serving) {
+            console.log('in serving');
+            if (parseInt($scope.coffeeData.allServings[i].id) == parseInt(response.data.serving.id)) {
               indexDeletedServing = i;
+              console.log('index', indexDeletedServing);
             }
           }
-          $scope.coffeeData.allServings.splice(indexDeletedServing, 1);
+          if (indexDeletedServing !== -1) {
+            console.log('splicing');
+            $scope.coffeeData.allServings.splice(indexDeletedServing, 1);
+          } else {
+            console.log('not found!');
+          }
+
           // remove deleted item from $scope.coffeeData.allPurchases array
-          let indexDeletedPurchase;
+          let indexDeletedPurchase = -1;
           for (let i = 0; i < $scope.coffeeData.allPurchases.length; i++) {
-            if ($scope.coffeeData.allPurchases[i] == response.data.purchase) {
+            console.log('in purchase');
+            if (parseInt($scope.coffeeData.allPurchases[i].id) === parseInt(response.data.serving.purchase_id) && $scope.coffeeData.allPurchases[i].by_cup === true) {
               indexDeletedPurchase = i;
+              console.log('index', indexDeletedPurchase);
             }
           }
-          $scope.coffeeData.allPurchases.splice(indexDeletedPurchase, 1);
+
+          if (indexDeletedPurchase !== -1) {
+            console.log('splicing');
+            $scope.coffeeData.allPurchases.splice(indexDeletedPurchase, 1);
+          } else {
+            console.log('not found!');
+          }
+
         } else {
           console.log('Ooops, something went wrong.');
         }
