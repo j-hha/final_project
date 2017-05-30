@@ -90,7 +90,6 @@ angular.module('CoffeeApp')
               console.log('splicing');
               $scope.coffeeData.allServings.splice(index, 1);
             });
-            $scope.coffeeData.allServings.splice(indexDeletedPurchase, 1);
           } else {
             console.log('  nothing found');
           }
