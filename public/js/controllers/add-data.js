@@ -1,5 +1,6 @@
 angular.module('CoffeeApp').controller('addDataController', ['$scope', '$http', function($scope, $http) {
   // tab functionality ---------------------------------------------------------
+  $scope.availablePurchasesbyBag();
 
   this.tabs = {
     tab1: true,
@@ -79,14 +80,15 @@ angular.module('CoffeeApp').controller('addDataController', ['$scope', '$http', 
         if (response.data.status = 201) {
           console.log('success: ', response.data.purchase);
           $scope.coffeeData.allPurchases.push(response.data.purchase);
-          $scope.coffeeData.by_cup.push(response.data.purchase);
+          $scope.coffeeData.byCup.push(response.data.purchase);
           // $localStorage.setItem('purchases', JSON.stringify($scope.coffeeData.allPurchases));
           //on success: http post request to servings
+          newServing.purchase_id = parseInt(response.data.purchase.id);
           $http({
             method: 'POST',
             url: $scope.baseUrl + 'servings',
             data: {
-              serving: newServing
+              serving: newServing,
             },
             headers: {
                Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
@@ -133,6 +135,7 @@ angular.module('CoffeeApp').controller('addDataController', ['$scope', '$http', 
       response => {
         console.log('success: ', response.data);
         if (response.data.status = 201) {
+          $scope.coffeeData.allPurchases.push(response.data.purchase);
           $scope.coffeeData.byBag.push(response.data.purchase);
           // localStorage.setItem('purchases', JSON.stringify($scope.coffeeData.allServings));
           $scope.availablePurchasesbyBag();
