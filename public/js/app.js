@@ -289,6 +289,41 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     }
   };
 
-  // paper cup counter logic end -----------------------------------------------
+  // ---------------------- max caffeine logic -------------------------
+
+  // this.coffeePotImg = '../../barista-icon-set/SVG/barista-icons_cup-of-coffee.svg';
+  // // $('.coffee-pot').click(function() {
+  // //   console.log('clicked');
+  // //   $(this).css('filter', 'opacity(1)');
+  // // });
+
+  this.numOfCupsPerDay = 0;
+
+  this.range = [1,2,3,4,5,6];
+
+
+  // ----------- navigation logic -----------------
+
+  $scope.mainNavigation = {
+    dashboard: true,
+    health: false,
+    finances: false,
+    environment: false,
+    society: false
+  };
+
+  $scope.navigate = function(navigation, category) {
+    for (var key in navigation) {
+      if (key == category) {
+        console.log(key, navigation[key]);
+        navigation[key] = true;
+        console.log(key, navigation[key]);
+      } else {
+        console.log(key, navigation[key]);
+        navigation[key] = false;
+        console.log(key, navigation[key]);
+      }
+    }
+  };
 
 }]);

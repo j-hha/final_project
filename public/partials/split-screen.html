@@ -1,4 +1,20 @@
 <section class="statistics">
+  <article id="caffeine-limit">
+    <h2>Find out: How many cups is too much?</h2>
+    <img ng-repeat="n in ctrl.range | limitTo: ctrl.numOfCupsPerDay" class="coffee-pot" ng-src="../../barista-icon-set/SVG/barista-icons_cup-of-coffee.svg" alt="a cup of coffee">
+  </article>
+</section>
+<section class="user-data">
+  <article id="caffeine-limit-answer-field">
+    {{ctrl.numOfCupsPerDay}}
+    <form ng-submit="">
+      <input type="range" ng-model="ctrl.numOfCupsPerDay" min="1" max="6"> cups/day
+      <!-- <input type="submit"> -->
+    </form>
+  </article>
+</section>
+
+<section class="statistics">
   <article id="paper-cup-stat">
     <blockquote>Globally, at least 58 billion throwaway cups are used each year, involving more than a million tonnes of paper.
       <p>
@@ -25,13 +41,5 @@
         <input ng-model="ctrl.numOfPaperCups" id="paper-cups-form" min="0" max="60" type="number">
         <input type="submit" class="submit">
       </form>
-  </article>
-</section>
-<section class="statistics">
-  <article class="">
-  </article>
-</section>
-<section class="user-data">
-  <article class="">
   </article>
 </section>

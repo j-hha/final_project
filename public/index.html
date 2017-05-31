@@ -10,13 +10,13 @@
     src="https://code.jquery.com/jquery-3.2.1.js"
     integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
     crossorigin="anonymous"></script>
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" charset="utf-8"></script>
     <!-- angularjs -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
     <!-- angularjs routes -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
     <base href="/">
-    <!-- Chart.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" charset="utf-8"></script>
     <!-- SCRIPTS -->
     <script src="js/app.js" charset="utf-8"></script>
     <!-- CONTROLLERS -->
@@ -32,6 +32,8 @@
     <script src="js/directives/all-data.js" charset="utf-8"></script>
     <script src="js/controllers/add-data.js" charset="utf-8"></script>
     <script src="js/directives/add-data.js" charset="utf-8"></script>
+    <script src="js/controllers/health.js" charset="utf-8"></script>
+    <script src="js/directives/health.js" charset="utf-8"></script>
     <!-- STYLES -->
     <link rel="stylesheet" href="/css/main.css">
   </head>
@@ -39,12 +41,12 @@
     <nav>
       <span><a href="/">coffee compass</a></span>
       <div class="" ng-if="checkUser()">
-        <span><a href="/my-dashboard">
+        <span ng-click="navigate(mainNavigation, 'dashboard')"><a href="/my-dashboard">
             <i class="fa fa-tachometer fa-2x" aria-hidden="true"></i>
             <span>dashboard</span>
           </a>
         </span>
-        <span>
+        <span ng-click="navigate(mainNavigation, 'health')">
             <i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i>
             <span>health</span>
         </span>

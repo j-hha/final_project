@@ -282,6 +282,40 @@ h2 {
   font-size: .5em;
 }
 
+/* ********* caffeine intake animation ********* */
+
+#caffeine-limit {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.coffee-pot {
+  width: Calc(100%/3);
+  filter: opacity(.5);
+}
+
+.coffee-pot:hover {
+  filter: opacity(.8);
+  transition-duration: .7s;
+}
+
+#caffeine-limit-answer-field {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#caffeine-limit-answer-field p {
+  font-size: 4em;
+}
+
+/* ********* caffeine intake animation end ********* */
+
+
+
 .coffee-input-forms {
   background-color: #efefef;
   width: 50%;
@@ -578,6 +612,12 @@ input[type="number"] {
   box-shadow: none;
 }
 
+/* ********* CHART STYLES ********* */
+.chartContainer {
+  margin: auto;
+  width: 60%;
+}
+
 /* ********* RESPONSIVE STYLES ********* */
 
 @media (max-width: 768px) {
@@ -586,6 +626,11 @@ input[type="number"] {
   }
 
   .user-data {
+    width: 100%;
+  }
+
+  .chartContainer {
+    margin: auto;
     width: 100%;
   }
 }
