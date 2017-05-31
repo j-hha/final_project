@@ -12,9 +12,37 @@
   <canvas id="caffeineIntakeGraph" width="100%" max-height="100%"></canvas>
 </section>
 
-<h2>Sugar Levels</h2>
-<section>
-  <div id="graphSugarLevels">
-    <div id="graphSugarLimit"></div>
+<h2>Compare Sugar Levels</h2>
+<section id="sugarGraph">
+  <div class="sugarGraphContent">
+    <img id="plainDrink" src="../barista-icon-set/SVG/barista-icons_latte-macchiato.svg" alt="cappuccino">
+    <p><span id="sugarGrammsPlain"></span>g of sugar from milk only</p>
+  </div>
+  <div class="sugarGraphContent">
+    <div id="sugarLimit"></div>
+    <p>daily limit for free sugars: 25g</p>
+  </div>
+  <div class="sugarGraphContent">
+    <img id="flavoredDrink" src="../barista-icon-set/SVG/barista-icons_frappuccino-milk-shake.svg" alt="frappuccino">
+    <p><span id="sugarGrammsFlavored"></span>g of sugar total, partly from milk, partly free sugars</p>
   </div>
 </section>
+<p>
+  <form ng-submit="healthCtrl.getValuesForUserInput();">
+    <label for="plain">Plain drink </label>
+    <select id="plain" ng-model="healthCtrl.choicePlain" required>
+      <option value="">---Please select---</option>
+      <option value="0">Cappuccino Italian style, 4.2fl oz</option>
+      <option value="1">Starbucks Cappuccino, 8fl oz</option>
+      <option value="2">Dunkin' Donuts Latte, 10 fl oz </option>
+    </select>
+     vs 
+    <label for="plain">Flavored drink</label>
+    <select id="flavored" ng-model="healthCtrl.choiceFlavored" required>
+      <option value="">---Please select---</option>
+      <option value="3">Starbucks Vanilla Latte, 8fl oz</option>
+      <option value="4">Dunkin' Donuts Caramel Swirl Latte, 10 fl oz</option>
+    </select>
+    <input type="submit" class="submit" >
+  </form>
+</p>

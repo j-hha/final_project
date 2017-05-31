@@ -299,20 +299,28 @@ h2 {
 
 @keyframes limit-reached {
   0%   {transform: rotate(0deg);}
-  25%   {transform: rotate(15deg);}
+  25%   {transform: rotate(5deg);}
   50%  {transform: rotate(0deg);}
-  100% {transform: rotate(-15deg);}
+  100% {transform: rotate(-5deg);}
+}
+
+@keyframes over-limit {
+  0%   {transform: rotate(0deg);}
+  25%   {transform: rotate(10deg);}
+  50%  {transform: rotate(0deg);}
+  100% {transform: rotate(-10deg);}
 }
 
 #caffeine-limit-answer-field {
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 #caffeine-limit-answer-field p {
-  font-size: 4em;
+  font-size: 3em;
+  align-self: center;
 }
 
 /* ********* caffeine intake animation end ********* */
@@ -638,34 +646,45 @@ input[type="number"] {
   background-color: rgba(211,211,211,.1);
 }
 
-.graphSugarLevels {
+#sugarLimit {
+  height: 0;
+  width: 3px;
+  background-color: red;
+  background: -webkit-linear-gradient(red, transparent);
+  background: -o-linear-gradient(red, transparent);
+  background: -moz-linear-gradient(red, transparent);
+  background: linear-gradient(red, transparent);
+}
+
+#plainDrink {
+  height: 0;
+  border-top: 2px dashed black;
+}
+
+#flavoredDrink {
+  height: 0;
+  border-top: 2px dashed black;
+}
+
+#sugarGraph {
+  height: 70vh;
+  width: 100%;
+  margin: auto;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.sugarGraphContent {
+  height: 500px;
+  display: flex;
+  flex-flow: column;
   align-items: center;
+  justify-content: flex-end;
+  display: none;
 }
 
-#graphSugarLevels {
-  background-image: url("../barista-icon-set/SVG/barista-icons_frappuccino-milk-shake.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  border-radius: 100%;
-  width: 10em;
-  height: 10em;
-  background-color: rgba(255,20,147,.5);
-  margin: 0 auto;
-}
-
-#graphSugarLimit {
-  border-radius: 100%;
-  width: 10em;
-  height: 10em;
-  /*background-color: rgba(255,255,255,1);*/
-  margin: 0 auto;
-  background-color: rgba(255,255,255,.5);
-  border: 1em solid transparent;
-}
 
 /* ********* RESPONSIVE STYLES ********* */
 
@@ -679,8 +698,11 @@ input[type="number"] {
   }
 
   .chartContainer {
-    margin: auto;
-    width: 100%;
+    width: 100vw;
+  }
+
+  canvas {
+    overflow: auto;
   }
 }
 
@@ -701,5 +723,18 @@ input[type="number"] {
   .coffee-input-form-labels {
     font-size: 1.2em;
     width: 90%;
+  }
+
+  nav {
+    overflow: auto;
+  }
+
+  .chartContainer {
+    max-width: 90vw;
+    overflow: scroll;
+  }
+
+  canvas {
+    overflow: scroll;
   }
 }
