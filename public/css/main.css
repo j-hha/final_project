@@ -464,6 +464,30 @@ table tr:nth-of-type(even) {
   height: 100%;
 }
 
+.health-article {
+  height: Calc(86vh/3);
+  margin-top: 0;
+  background-color: rgba(242,242,242,.2);
+  border-bottom: 1vh solid white;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.health-article h2 {
+  width: 100%;
+}
+
+.health-article h2:hover {
+  color: #43A5CF;
+  transition: .5s;
+}
+
+.health-article h2:active {
+  color: #215267;
+}
+
 footer {
   padding: 2vh 1vw;
   text-align: center;
@@ -631,60 +655,90 @@ input[type="number"] {
 }
 
 #coffeeConsumptionGraph {
-  background-image: url("../barista-icon-set/SVG/barista-icons_coffeepot.svg");
+  /*background-image: url("../barista-icon-set/SVG/barista-icons_coffeepot.svg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 45%;
-  background-color: rgba(211,211,211,.1);
+  background-size: 45%;*/
 }
 
 #caffeineIntakeGraph {
-  background-image: url("../barista-icon-set/SVG/barista-icons_coffee-bean.svg");
+  /*background-image: url("../barista-icon-set/SVG/barista-icons_coffee-bean.svg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
-  background-color: rgba(211,211,211,.1);
+  background-size: contain;*/
 }
 
 #sugarLimit {
-  height: 0;
-  width: 3px;
+  height: 100%;
+  width: 10px;
   background-color: red;
   background: -webkit-linear-gradient(red, transparent);
   background: -o-linear-gradient(red, transparent);
   background: -moz-linear-gradient(red, transparent);
   background: linear-gradient(red, transparent);
+  border-radius: 5px;
 }
 
 #plainDrink {
-  height: 0;
-  border-top: 2px dashed black;
+  height: 50%;
 }
 
 #flavoredDrink {
-  height: 0;
-  border-top: 2px dashed black;
+  height: 50%;
 }
 
 #sugarGraph {
-  height: 70vh;
-  width: 100%;
+  height: 80%;
+  width: 70%;
   margin: auto;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
   align-items: flex-end;
+  padding: 2vh 2vw;
+  font-size: .8em;
+  display: none;
 }
 
+#sugarForm {
+  height: 70%;
+  width: 30%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 1vh 1vw;
+  display: none;
+}
+
+#sugarForm form {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+#sugarForm form label {
+  float: left;
+  width: 30%;
+}
+
+#sugarForm form select {
+  float: right;
+  width: 70%;
+  font-size: .8em;
+  font-family: 'Lato', sans-serif;
+}
+
+
 .sugarGraphContent {
-  height: 500px;
+  height: 100%;
   display: flex;
   flex-flow: column;
   align-items: center;
   justify-content: flex-end;
-  display: none;
 }
-
 
 /* ********* RESPONSIVE STYLES ********* */
 

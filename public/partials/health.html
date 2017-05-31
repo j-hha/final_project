@@ -1,48 +1,58 @@
+<article class="health-article">
+  <h2 ng-click="healthCtrl.createConsumptionGraph(coffeeData.allServings,'byDay');">My daily coffee consumption</h2>
+  <section class="chartContainer healthContent">
+    <canvas id="coffeeConsumptionGraph" width="100%" max-height="100%"></canvas>
+  </section>
+</article>
 
-<!-- <button type="button" name="button" ng-click="healthCtrl.parseData(coffeeData.allServings);">click</button> -->
-<h2>My daily coffee consumption</h2>
-<button type="button" name="button" ng-click="healthCtrl.createConsumptionGraph(coffeeData.allServings, 'byDay');">chart pls</button>
-<section class="chartContainer">
-  <canvas id="coffeeConsumptionGraph" width="100%" max-height="100%"></canvas>
-</section>
+<article class="health-article">
+  <h2 ng-click="healthCtrl.createCaffeineGraph(coffeeData.allServings,'caffeine');">My daily caffeine intake</h2>
+  <section class="chartContainer healthContent">
+    <canvas id="caffeineIntakeGraph" width="100%" max-height="100%"></canvas>
+  </section>
+</article>
 
-<h2>My daily caffeine intake</h2>
-<button type="button" name="button" ng-click="healthCtrl.createCaffeineGraph(coffeeData.allServings, 'caffeine');">chart pls</button>
-<section class="chartContainer">
-  <canvas id="caffeineIntakeGraph" width="100%" max-height="100%"></canvas>
-</section>
-
-<h2>Compare Sugar Levels</h2>
-<section id="sugarGraph">
-  <div class="sugarGraphContent">
-    <img id="plainDrink" src="../barista-icon-set/SVG/barista-icons_latte-macchiato.svg" alt="cappuccino">
-    <p><span id="sugarGrammsPlain"></span>g of sugar from milk only</p>
-  </div>
-  <div class="sugarGraphContent">
-    <div id="sugarLimit"></div>
-    <p>daily limit for free sugars: 25g</p>
-  </div>
-  <div class="sugarGraphContent">
-    <img id="flavoredDrink" src="../barista-icon-set/SVG/barista-icons_frappuccino-milk-shake.svg" alt="frappuccino">
-    <p><span id="sugarGrammsFlavored"></span>g of sugar total, partly from milk, partly free sugars</p>
-  </div>
-</section>
-<p>
-  <form ng-submit="healthCtrl.getValuesForUserInput();">
-    <label for="plain">Plain drink </label>
-    <select id="plain" ng-model="healthCtrl.choicePlain" required>
-      <option value="">---Please select---</option>
-      <option value="0">Cappuccino Italian style, 4.2fl oz</option>
-      <option value="1">Starbucks Cappuccino, 8fl oz</option>
-      <option value="2">Dunkin' Donuts Latte, 10 fl oz </option>
-    </select>
-     vs 
-    <label for="plain">Flavored drink</label>
-    <select id="flavored" ng-model="healthCtrl.choiceFlavored" required>
-      <option value="">---Please select---</option>
-      <option value="3">Starbucks Vanilla Latte, 8fl oz</option>
-      <option value="4">Dunkin' Donuts Caramel Swirl Latte, 10 fl oz</option>
-    </select>
-    <input type="submit" class="submit" >
-  </form>
-</p>
+<article class="health-article">
+  <h2 ng-click="healthCtrl.showSugarGraph();">Compare Sugar Levels: plain vs flavored drinks</h2>
+    <section id="sugarForm">
+      <form ng-submit="healthCtrl.getValuesForUserInput();">
+        <div>
+          <label for="plain">plain: </label>
+          <select id="plain" ng-model="healthCtrl.choicePlain" required>
+            <option selected disabled hidden value="">--- please select ---</option>
+            <option value="0">Cappuccino Italian style, 4.2fl oz</option>
+            <option value="1">Starbucks Cappuccino, 8fl oz</option>
+            <option value="2">Starbucks Caffè Latte, 8fl oz</option>
+            <option value="3">Dunkin' Donuts Latte, 10 fl oz </option>
+          </select>
+        </div>
+        <br>
+        <div>
+          <label for="flavored">flavored:</label>
+          <select required id="flavored" ng-model="healthCtrl.choiceFlavored">
+            <option selected disabled hidden style='display: none' value="">--- please select ---</option>
+            <option value="4">Starbucks Vanilla Latte, 8fl oz</option>
+            <option value="5">Starbucks Cinnamon Dolce Latte with Whipped Cream, 8fl oz</option>
+            <option value="6">Dunkin' Donuts Caramel Swirl Latte, 10 fl oz</option>
+          </select>
+        </div>
+        <br>
+        <br>
+        <input type="submit" class="submit" >
+      </form>
+    </section>
+    <section id="sugarGraph">
+      <div class="sugarGraphContent">
+        <img id="plainDrink" src="../barista-icon-set/SVG/barista-icons_latte-macchiato.svg" alt="cappuccino">
+        <p id="sugarGrammsPlain"></p>
+      </div>
+      <div class="sugarGraphContent">
+        <div id="sugarLimit"></div>
+        <p>daily limit for free sugars: 25g</p>
+      </div>
+      <div class="sugarGraphContent">
+        <img id="flavoredDrink" src="../barista-icon-set/SVG/barista-icons_frappuccino-milk-shake.svg" alt="frappuccino">
+        <p id="sugarGrammsFlavored"></p>
+      </div>
+    </section>
+</article>

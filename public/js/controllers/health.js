@@ -56,6 +56,9 @@ angular.module('CoffeeApp')
   };
 
   this.createConsumptionGraph = function(dataArray, key) {
+    $('.health-article').eq(0).animate({height: '87vh'});
+    $('.health-article').eq(0).animate({visibility: 'visibile'});
+
     this.parseData(dataArray, key);
     ctx = document.getElementById("coffeeConsumptionGraph");
     var mixedChart = new Chart(ctx, {
@@ -67,16 +70,6 @@ angular.module('CoffeeApp')
           backgroundColor: 'rgba(67,165,207,.8)',
           borderColor: 'rgba(67,165,207,1)',
           borderWidth: 1
-        // }, {
-        //   label: 'recommended daily limit',
-        //   data: [5,5,5,5,5,5,5],
-        //   borderColor: 'rgba(255,0,0,1)',
-        //   fill: false,
-        //   pointRadius: 0,
-        //   pointHoverRadius: 0,
-        //   backgroundColor: 'rgba(255,0,0,1)',
-        //   // Changes this dataset to become a line
-        //   type: 'line'
         }],
         labels: cleanLabels
       },
@@ -97,6 +90,8 @@ angular.module('CoffeeApp')
   };
 
   this.createCaffeineGraph = function(dataArray, key) {
+    $('.health-article').eq(1).animate({height: '87vh'});
+    $('.healthContent').eq(1).css('visibility', 'visible');
     this.parseData(dataArray, key);
     ctx = document.getElementById("caffeineIntakeGraph");
     var mixedChart = new Chart(ctx, {
@@ -136,60 +131,23 @@ angular.module('CoffeeApp')
     });
   };
 
-  this.createSugarGraph = function() {
-    // ctx = document.getElementById("sugarIntakeGraph");
-    // var mixedChart = new Chart(ctx, {
-    //   type: 'bar',
-    //   data: {
-    //     datasets: [{
-    //       label: 'sugar in g',
-    //       data: [5,7,17,10,37],
-    //       backgroundColor: 'rgba(67,165,207,.8)',
-    //       borderColor: 'rgba(67,165,207,1)',
-    //       borderWidth: 1
-    //     }, {
-    //       label: 'recommended daily limit',
-    //       data: [25,25,25,25,25],
-    //       borderColor: 'rgba(255,0,0,1)',
-    //       fill: false,
-    //       pointRadius: 0,
-    //       pointHoverRadius: 0,
-    //       backgroundColor: 'rgba(255,0,0,1)',
-    //       // Changes this dataset to become a line
-    //       type: 'line'
-    //     }],
-    //     labels: ['Cappuccino Italian style, 4.2fl oz', 'Starbucks Cappuccino, 8fl oz', 'Starbucks Vanilla Latte, 8fl oz', 'Dunkin\' Donuts Latte,10 fl oz', 'Dunkin\' Donuts Caramel Swirl Latte,10 fl oz']
-    //   },
-    //   options: {
-    //       scales: {
-    //           responsive: true,
-    //           yAxes: [{
-    //               ticks: {
-    //                   min:0,
-    //                   beginAtZero:true,
-    //                   stepSize: 50
-    //               }
-    //           }]
-    //       }
-    //   }
-    // });
-
-    // get user input
-    // get highest sugar value --> 100%
-    // compare the others and make them grow accordingly
-  };
-
-  // ++++++++++++++
-
       this.choicePlain = 0;
       this.choiceFlavored = 0;
+
+      this.showSugarGraph = function() {
+        $('.health-article').eq(2).animate({height: '87vh'});
+        $('#sugarGraph').css('display', 'flex');
+        $('#sugarForm').css('display', 'flex');
+
+
+      };
 
       this.getValuesForUserInput = function() {
         $('#sugarLimit').animate({height: '0'});
         $('#plainDrink').animate({height: '0'});
         $('#flavoredDrink').animate({height: '0'});
 
-        let values = [5,7,10,17,37];
+        let values = [5,7,9,10,17,20,37];
         let sugarlimit = 25;
 
         let max = Math.max(sugarlimit, values[parseInt(this.choicePlain)], values[parseInt(this.choiceFlavored)]);
@@ -211,10 +169,14 @@ angular.module('CoffeeApp')
         $('#sugarLimit').animate({height: heightLimit +'%'});
 
         $('#plainDrink').animate({height: heightPlain +'%'});
-        $('#sugarGrammsPlain').text(values[parseInt(this.choicePlain)]);
+        $('#plainDrink').animate({borderTop: '2px dashed black'});
+        $('#sugarGrammsPlain').text(values[parseInt(this.choicePlain)] + 'g of sugar from milk');
+
 
         $('#flavoredDrink').animate({height: heightFlavored + '%'});
-        $('#sugarGrammsFlavored').text(values[parseInt(this.choiceFlavored)]);
+        $('#flavoredDrink').animate({borderTop: '2px dashed black'});
+        $('#sugarGrammsFlavored').text(values[parseInt(this.choiceFlavored)] + 'g of sugar total, partly from milk, partly free sugars');
+
 
         console.log("plain, limit, flavored ", heightPlain, heightLimit, heightFlavored);
       };
