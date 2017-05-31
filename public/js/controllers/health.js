@@ -64,7 +64,7 @@ angular.module('CoffeeApp')
         datasets: [{
           label: '# of cups',
           data: cleanData,
-          backgroundColor: 'rgba(67,165,207,1)',
+          backgroundColor: 'rgba(67,165,207,.8)',
           borderColor: 'rgba(67,165,207,1)',
           borderWidth: 1
         // }, {
@@ -105,8 +105,8 @@ angular.module('CoffeeApp')
         datasets: [{
           label: 'caffeine in mg',
           data: cleanData,
-          backgroundColor: 'rgba(67,165,207,.9)',
-          borderColor: 'rgba(67,165,207,.9)',
+          backgroundColor: 'rgba(67,165,207,.8)',
+          borderColor: 'rgba(67,165,207,1)',
           borderWidth: 1
         }, {
           label: 'recommended daily limit',
