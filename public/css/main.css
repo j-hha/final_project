@@ -293,12 +293,15 @@ h2 {
 
 .coffee-pot {
   width: Calc(100%/3);
-  filter: opacity(.5);
+  animation-duration: .2s;
+  animation-iteration-count: infinite;
 }
 
-.coffee-pot:hover {
-  filter: opacity(.8);
-  transition-duration: .7s;
+@keyframes limit-reached {
+  0%   {transform: rotate(0deg);}
+  25%   {transform: rotate(15deg);}
+  50%  {transform: rotate(0deg);}
+  100% {transform: rotate(-15deg);}
 }
 
 #caffeine-limit-answer-field {

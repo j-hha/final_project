@@ -298,8 +298,18 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   // // });
 
   this.numOfCupsPerDay = 0;
-
   this.range = [1,2,3,4,5,6];
+  this.limitMsg = '';
+
+  this.checkLimit = function() {
+    if (this.numOfCupsPerDay > 4) {
+      $('.coffee-pot').css('animation-name', 'limit-reached');
+      this.limitMsg = 'Four to five cups of coffee are considered safe for healthy adults.';
+    } else {
+      $('.coffee-pot').css('animation-name', '');
+      this.limitMsg = '';
+    }
+  };
 
 
   // ----------- navigation logic -----------------

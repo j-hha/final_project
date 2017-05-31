@@ -1,16 +1,16 @@
 <section class="statistics">
   <article id="caffeine-limit">
-    <h2>Find out: How many cups is too much?</h2>
     <img ng-repeat="n in ctrl.range | limitTo: ctrl.numOfCupsPerDay" class="coffee-pot" ng-src="../../barista-icon-set/SVG/barista-icons_cup-of-coffee.svg" alt="a cup of coffee">
+    <small>{{ctrl.limitMsg}}</small>
   </article>
 </section>
 <section class="user-data">
   <article id="caffeine-limit-answer-field">
-    {{ctrl.numOfCupsPerDay}}
-    <form ng-submit="">
-      <input type="range" ng-model="ctrl.numOfCupsPerDay" min="1" max="6"> cups/day
-      <!-- <input type="submit"> -->
-    </form>
+    <h2>How much coffee is safe?</h2>
+    <p>
+      {{ctrl.numOfCupsPerDay}}
+      <input ng-mouseup="ctrl.checkLimit();" type="range" ng-model="ctrl.numOfCupsPerDay" min="1" max="6"> cups/day
+    </p>
   </article>
 </section>
 
