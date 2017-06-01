@@ -28,7 +28,12 @@ a:active {
   color: #215267;
 }
 
+h2 {
+  text-align: center;
+  text-transform: uppercase;
+}
 
+/* ********* NAVIGATION ********* */
 nav {
   display: flex;
   flex-flow: row nowrap;
@@ -76,18 +81,64 @@ nav div span:hover {
   transition-duration: .4s;
 }
 
+/* ********* footer ********* */
+
+footer {
+  padding: 2vh 1vw;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: .6em;
+  border-top: 1px solid #efefef;
+}
+
+/* ********* ARTICLE STYLES ********* */
+
 article {
   padding: 2.5vh 2.5vw;
   height: 90vh;
   margin-top: 12vh;
 }
 
+/* ********* DASHBOARD articles styles ********* */
 
+.dashboard-article {
+  min-height: 90vh;
+  height: 100%;
+}
+
+.health-article {
+  height: Calc(86vh/3);
+  margin-top: 0;
+  background-color: rgba(242,242,242,.2);
+  border-bottom: 1vh solid white;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.health-article h2 {
+  width: 100%;
+}
+
+.health-article h2:hover {
+  color: #43A5CF;
+  transition: .5s;
+}
+
+.health-article h2:active {
+  color: #215267;
+}
+
+/* ********* WELCOME ********* */
 #welcome {
   background-image: url('../img/coffee-bw.jpg');
   /*img source: https://pixabay.com/en/coffee-coffee-cup-cup-of-coffee-1911764/*/
   background-position: center;
   background-repeat: no-repeat;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
   background-size: cover;
   position: relative;
   height: 100vh;
@@ -117,6 +168,8 @@ article {
   text-align: center;
 }
 
+/* ********* PROMPT ********* */
+
 #promt {
   text-align: center;
 }
@@ -143,7 +196,7 @@ article {
   border: 1px solid #215267;
 }
 
-/*split screen styles*/
+/* ********* split screen styles ********* */
 
 .split-screen {
   display: flex;
@@ -177,6 +230,9 @@ article {
   min-height: 90vh;
 }*/
 
+
+/* ********* PAPER CUP GRAPHIC ********* */
+
 #cupGraphic {
   display: flex;
   flex-direction: column;
@@ -189,19 +245,29 @@ article {
   align-items: flex-end;
   margin-top: 3vh;
   justify-content: space-around;
+  height: 58.7vh;
 }
 
 
 #ladyLiberty {
-  /*background-image: url('../smashing-freebie-touristic-icon-set/SVG/26.svg');*/
-  background-image: url('../img/red-usa-statue-of-liberty-by-Vexels.svg');
-  height: 100%;
   flex-grow: 1;
+  -webkit-flex-grow: 1;
+  height: 100%;
+  background-image: url('../img/red-usa-statue-of-liberty-by-Vexels.svg');
   background-repeat: no-repeat;
   background-position: center;
+  -o-background-size: contain;
+  -moz-background-size: contain;
+  -webkit-background-size: contain;
   background-size: contain;
   position: relative;
-  /*<a target="_blank" href="https://www.vexels.com/vectors/preview/128622/red-usa-statue-of-liberty"> Red usa statue of liberty </a> |   Designed by Vexels.com*/
+  /* img source: <a target="_blank" href="https://www.vexels.com/vectors/preview/128622/red-usa-statue-of-liberty"> Red usa statue of liberty </a> |   Designed by Vexels.com*/
+}
+
+#ladyLiberty img {
+  width: 62%;
+  margin: auto;
+  display: block;
 }
 
 #ladyLiberty span {
@@ -222,8 +288,11 @@ article {
   height: 0;
   background-image: url('../barista-icon-set/SVG/barista-icons_coffee-to-go.svg');
   background-repeat: space;
-  background-position: bottom center;
+  -o-background-size: contain;
+  -moz-background-size: contain;
+  -webkit-background-size: contain;
   background-size: contain;
+  background-position: bottom;
   border-left: 1vmin solid white;
   position: relative;
 }
@@ -263,11 +332,6 @@ article {
 
 #paper-cups-form {
   width: 7vmin;
-}
-
-h2 {
-  text-align: center;
-  text-transform: uppercase;
 }
 
 #paper-cup-stat {
@@ -323,9 +387,7 @@ h2 {
   align-self: center;
 }
 
-/* ********* caffeine intake animation end ********* */
-
-
+/* ********* DASHBOARD: add coffee forms ********* */
 
 .coffee-input-forms {
   background-color: #efefef;
@@ -408,6 +470,8 @@ h2 {
   text-shadow: 1px 1px 3px #ccc;
 }
 
+/* ********* DASHBOARD options ********* */
+
 #profile-options {
   margin-top: 12vh;
   display: flex;
@@ -416,12 +480,7 @@ h2 {
   align-items: center;
   text-align: center;
   padding: 1vh 1vw;
-  /*background: -webkit-linear-gradient(#efefef, white);
-  background: -o-linear-gradient(#efefef, white);
-  background: -moz-linear-gradient(#efefef, white);
-  background: linear-gradient(#f9f9f9, white);*/
   font-size: .9em;
-  /*border-top: 1px solid #efefef;*/
   text-transform: uppercase;
 }
 
@@ -437,6 +496,8 @@ h2 {
 .profile-options-labels:active {
     color: #215267;
 }
+
+/* ********* DASHBOARD data table ********* */
 
 table {
   margin: auto;
@@ -457,43 +518,6 @@ table th, td {
 table tr:nth-of-type(even) {
   background-color: #efefef;
   padding: 1vh 1vw;
-}
-
-.dashboard-article {
-  min-height: 90vh;
-  height: 100%;
-}
-
-.health-article {
-  height: Calc(86vh/3);
-  margin-top: 0;
-  background-color: rgba(242,242,242,.2);
-  border-bottom: 1vh solid white;
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.health-article h2 {
-  width: 100%;
-}
-
-.health-article h2:hover {
-  color: #43A5CF;
-  transition: .5s;
-}
-
-.health-article h2:active {
-  color: #215267;
-}
-
-footer {
-  padding: 2vh 1vw;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: .6em;
-  border-top: 1px solid #efefef;
 }
 
 /* ********* MODALS ********* */
@@ -567,7 +591,6 @@ footer {
 #sign-up-modal {
   display: none;
 }
-
 
 @keyframes fade-in {
   from { opacity: 0; }
@@ -648,6 +671,7 @@ input[type="number"] {
 }
 
 /* ********* CHART STYLES ********* */
+
 .chartContainer {
   margin: auto;
   width: 60%;
@@ -667,6 +691,8 @@ input[type="number"] {
   background-position: center;
   background-size: contain;*/
 }
+
+/* ********* COMPARE SUGAR LEVELS STYLES ********* */
 
 #sugarLimit {
   height: 100%;
@@ -731,7 +757,6 @@ input[type="number"] {
   font-family: 'Lato', sans-serif;
 }
 
-
 .sugarGraphContent {
   height: 100%;
   display: flex;
@@ -765,7 +790,21 @@ input[type="number"] {
     font-size: 1em;
   }
 
+  #welcome {
+    height: 50vh;
+    margin-top: 0;
+    background-position: center;
+  }
+
+
+  #welcome h1 {
+    margin: 25vh auto;
+  }
+
   #ladyLiberty {
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
     background-size: cover;
   }
 
