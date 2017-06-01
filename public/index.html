@@ -65,8 +65,8 @@
         </span> -->
       </div>
       <span>
-        <a href="#" ng-hide="checkUser()" ng-click="ctrl.openModal('sign-up-modal')">sign up |</a>
-        <a href="#" ng-hide="checkUser()" ng-click="ctrl.openModal('log-in-modal')">log in</a>
+        <a href="#" ng-hide="checkUser()" ng-click="ctrl.openModal('sign-up-modal'); ctrl.wakeUpAPI();">sign up |</a>
+        <a href="#" ng-hide="checkUser()" ng-click="ctrl.openModal('log-in-modal'); ctrl.wakeUpAPI();">log in</a>
         <a href="#" ng-show="checkUser()" ng-click="ctrl.logout()">log out</a>
       </span>
     </nav>

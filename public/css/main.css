@@ -6,7 +6,7 @@
 
 * {
   box-sizing: border-box;
-  /*border: 1px dotted black;*/
+  border: 1px dotted black;
 }
 
 body {
@@ -238,16 +238,12 @@ article {
   flex-flow: row nowrap;
   display: flex;
   align-items: flex-end;
-  margin-top: 3vh;
   justify-content: space-around;
-  height: 58.7vh;
 }
 
-
 #ladyLiberty {
-  flex-grow: 1;
-  -webkit-flex-grow: 1;
   height: 100%;
+  width: 90%;
   background-image: url('../img/red-usa-statue-of-liberty-by-Vexels.svg');
   background-repeat: no-repeat;
   background-position: center;
@@ -257,12 +253,6 @@ article {
   background-size: contain;
   position: relative;
   /* img source: <a target="_blank" href="https://www.vexels.com/vectors/preview/128622/red-usa-statue-of-liberty"> Red usa statue of liberty </a> |   Designed by Vexels.com*/
-}
-
-#ladyLiberty img {
-  width: 62%;
-  margin: auto;
-  display: block;
 }
 
 #ladyLiberty span {
@@ -678,20 +668,6 @@ canvas {
   height: 0;
 }
 
-#coffeeConsumptionGraph {
-  /*background-image: url("../barista-icon-set/SVG/barista-icons_coffeepot.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 45%;*/
-}
-
-#caffeineIntakeGraph {
-  /*background-image: url("../barista-icon-set/SVG/barista-icons_coffee-bean.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;*/
-}
-
 /* ********* COMPARE SUGAR LEVELS STYLES ********* */
 
 #sugarLimit {
@@ -766,6 +742,10 @@ canvas {
   padding: 1vh 1vw;
 }
 
+.sugarGraphContent p {
+  text-align: center;
+}
+
 /* ********* RESPONSIVE STYLES ********* */
 
 @media (max-width: 768px) {
@@ -792,8 +772,9 @@ canvas {
   }
 
   h2 {
-    font-size: 1em;
+    font-size: .9em;
   }
+
   .statistics {
     width: 100%
   }
@@ -849,6 +830,7 @@ canvas {
 
   #welcome h1 {
     margin: 25vh auto;
+    font-size: 4.3vw;
   }
 
   .coffee-input-forms {
@@ -861,8 +843,8 @@ canvas {
     width: 90%;
   }
 
-  nav {
-    overflow: auto;
+  .coffee-input-forms fieldset legend {
+    font-size: .6em;
   }
 
   .user-data article {
@@ -919,5 +901,13 @@ canvas {
   nav {
     font-size: .6em;
     height: 13vh;
+  }
+
+  #sugarGraph {
+    height: 70%;
+  }
+
+  .sugarGraphContent p {
+    font-size: .4em;
   }
 }
