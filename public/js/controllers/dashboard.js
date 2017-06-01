@@ -5,6 +5,7 @@ angular.module('CoffeeApp')
     addData: true,
     reviewData: false,
     editProfil: false,
+    faq: false
   };
 
   $scope.getPurchases();
