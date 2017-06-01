@@ -115,6 +115,8 @@ article {
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-around;
+  background-color: deeppink;
+
 }
 
 .health-article h2 {
@@ -669,8 +671,9 @@ input[type="number"] {
 .chartContainer {
   position: relative;
   margin: auto;
-  height: 50vh;
-  width: 80vw;
+  height: 0;
+  width: 60vw;
+  background-color: pink;
 }
 
 #coffeeConsumptionGraph {
@@ -786,6 +789,10 @@ input[type="number"] {
 
   legend {
     font-size: 1em;
+  }
+
+  .chartContainer {
+    width: 90vw;
   }
 
 }

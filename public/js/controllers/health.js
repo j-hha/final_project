@@ -59,6 +59,8 @@ angular.module('CoffeeApp')
   this.createConsumptionGraph = function(dataArray, key) {
     $('.health-article').eq(0).animate({height: '87vh'});
     $('.health-article').eq(0).animate({visibility: 'visibile'});
+    $('.chartContainer').eq(0).animate({height: '40vh'});
+
 
     this.parseData(dataArray, key);
     ctx = document.getElementById("coffeeConsumptionGraph");
@@ -102,6 +104,7 @@ angular.module('CoffeeApp')
   this.createCaffeineGraph = function(dataArray, key) {
     $('.health-article').eq(1).animate({height: '87vh'});
     $('.healthContent').eq(1).css('visibility', 'visible');
+    $('.chartContainer').eq(1).animate({height: '40vh'});
     this.parseData(dataArray, key);
     ctx = document.getElementById("caffeineIntakeGraph");
     var mixedChart = new Chart(ctx, {
