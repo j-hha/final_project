@@ -40,9 +40,9 @@
   </head>
   <body ng-controller="mainCtrl as ctrl">
     <nav>
-      <span><a href="/">coffee compass</a></span>
-      <div class="" ng-if="checkUser()">
-        <span ng-click="navigate(mainNavigation, 'dashboard')"><a href="/my-dashboard">
+      <span id="title">coffee compass</span>
+      <div class="" ng-if="checkUser();">
+        <span ng-click="navigate(mainNavigation, 'dashboard');"><a href="/my-dashboard">
             <i class="fa fa-tachometer fa-2x" aria-hidden="true"></i>
             <span>dashboard</span>
           </a>

@@ -61,7 +61,6 @@ angular.module('CoffeeApp')
     $('.health-article').eq(0).animate({visibility: 'visibile'});
     $('.chartContainer').eq(0).animate({height: '40vh'});
 
-
     this.parseData(dataArray, key);
     ctx = document.getElementById("coffeeConsumptionGraph");
     var mixedChart = new Chart(ctx, {

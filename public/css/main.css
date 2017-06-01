@@ -115,7 +115,6 @@ article {
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-around;
-  background-color: deeppink;
 
 }
 
@@ -673,7 +672,10 @@ input[type="number"] {
   margin: auto;
   height: 0;
   width: 60vw;
-  background-color: pink;
+}
+
+canvas {
+  height: 0;
 }
 
 #coffeeConsumptionGraph {
@@ -761,11 +763,37 @@ input[type="number"] {
   flex-flow: column;
   align-items: center;
   justify-content: flex-end;
+  padding: 1vh 1vw;
 }
 
 /* ********* RESPONSIVE STYLES ********* */
 
 @media (max-width: 768px) {
+
+  .profile-options-labels {
+    font-size: .9em;
+  }
+
+  .profile-options-labels:hover {
+    transform: scale(1.2);
+    transition-duration: .5s;
+  }
+
+  #title {
+    display: none;
+  }
+
+  #paperCupTowerLabel {
+    top: -4vmin;
+  }
+
+  #ladyLiberty span {
+    top: -4vmin;
+  }
+
+  h2 {
+    font-size: 1em;
+  }
   .statistics {
     width: 100%
   }
@@ -795,11 +823,22 @@ input[type="number"] {
     width: 90vw;
   }
 
+  #sugarForm {
+    font-size: .5em;
+  }
+
+  .nutrients {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) and (orientation: portrait) {
+  h2 {
+    font-size: 1.4em;
+  }
+
   body {
-    font-size: .6em;
+    font-size: .7em;
   }
 
   #welcome {
@@ -824,10 +863,6 @@ input[type="number"] {
 
   nav {
     overflow: auto;
-  }
-
-  canvas {
-    overflow: scroll;
   }
 
   .user-data article {
@@ -857,5 +892,32 @@ input[type="number"] {
 
   legend {
     font-size: 1em;
+  }
+
+  #sugarGraph {
+    width: 100%;
+    height: 40%;
+  }
+
+  #sugarForm {
+    width: 100%;
+    height: auto;
+  }
+
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+
+  .coffee-input-forms {
+    width: 80%;
+  }
+
+  .coffee-input-form-labels {
+    width: 80%;
+  }
+
+  nav {
+    font-size: .6em;
+    height: 13vh;
   }
 }

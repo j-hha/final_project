@@ -5,9 +5,9 @@
       <th>date</th>
       <th>beverage</th>
       <th>caffeine</th>
-      <th>kcal</th>
-      <th>sugar</th>
-      <th>fat</th>
+      <th class="nutrients">kcal</th>
+      <th class="nutrients">sugar</th>
+      <th class="nutrients">fat</th>
       <th>paper cup</th>
       <th><i class="fa fa-trash-o" aria-hidden="true"></i></th>
     </tr>
@@ -15,9 +15,9 @@
       <td>{{serving.date}}</td>
       <td>{{serving.beverage_type}}</td>
       <td>{{serving.caffeine}}</td>
-      <td>{{serving.cal}}</td>
-      <td>{{serving.sugar}}</td>
-      <td>{{serving.fat}}</td>
+      <td class="nutrients">{{serving.cal}}</td>
+      <td class="nutrients">{{serving.sugar}}</td>
+      <td class="nutrients">{{serving.fat}}</td>
       <td>{{serving.disposable_cup}}</td>
       <td class='delete' ng-click="allData.deleteServing(serving)">REMOVE</td>
     </tr>
