@@ -47,7 +47,8 @@ angular.module('CoffeeApp')
     }
 
     for (var i = userData[0].length-1; i >= Math.max(0,userData[0].length-7); i--) {
-      cleanLabels.unshift(userData[0][i].toDateString());
+      userData[0][i] =  userData[0][i].getMonth() + 1 + '/' + userData[0][i].getDate()
+      cleanLabels.unshift(userData[0][i]);
       cleanData.unshift(Math.round(userData[1][i]));
     }
     console.log("hey user data")
@@ -74,14 +75,23 @@ angular.module('CoffeeApp')
         labels: cleanLabels
       },
       options: {
+        maintainAspectRatio: false,
           scales: {
-              responsive: true,
               yAxes: [{
+                stacked: true,
+                gridLines: {
+                  display: false
+                },
                   ticks: {
                       min:0,
                       beginAtZero:true,
                       stepSize: 1
                   }
+              }],
+              xAxes: [{
+                gridLines: {
+                  display: false
+                }
               }]
           }
       }
@@ -117,14 +127,23 @@ angular.module('CoffeeApp')
         labels: cleanLabels
       },
       options: {
+        maintainAspectRatio: false,
           scales: {
-              responsive: true,
               yAxes: [{
+                stacked: true,
+                gridLines: {
+                  display: false
+                },
                   ticks: {
                       min:0,
                       beginAtZero:true,
-                      stepSize: 50
+                      stepSize: 100
                   }
+              }],
+              xAxes: [{
+                gridLines: {
+                  display: false
+                }
               }]
           }
       }
