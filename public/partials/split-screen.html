@@ -1,7 +1,9 @@
 <section class="statistics">
   <article id="caffeine-limit">
-    <img ng-repeat="n in ctrl.range | limitTo: ctrl.numOfCupsPerDay" class="coffee-pot" ng-src="../../barista-icon-set/SVG/barista-icons_cup-of-coffee.svg" alt="a cup of coffee">
-    <small>{{ctrl.limitMsg}}</small>
+      <div class="cup-holder">
+        <img ng-repeat="n in ctrl.range | limitTo: ctrl.numOfCupsPerDay" class="coffee-pot" ng-src="../../barista-icon-set/SVG/barista-icons_cup-of-coffee.svg" alt="a cup of coffee">
+      </div>
+      <p><small>{{ctrl.limitMsg}}</small></p>
   </article>
 </section>
 <section class="user-data">
@@ -36,11 +38,11 @@
           <span id="paperCupTowerLabel">{{ctrl.paperCupTowerInFt}}</span>
         </div>
       </div>
-      <h2>Your annual paper cup tower</h2>
       <form class="one-line-form" ng-submit="ctrl.getNumOfPaperCupsPerYear()">
         <label for="paper-cups-form">coffee-to-go / week:</label>
         <input ng-model="ctrl.numOfPaperCups" id="paper-cups-form" min="0" max="60" type="number">
         <input type="submit" class="submit">
       </form>
+      <h2>Your annual paper cup tower</h2>
   </article>
 </section>
