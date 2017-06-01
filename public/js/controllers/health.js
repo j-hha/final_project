@@ -169,12 +169,12 @@ angular.module('CoffeeApp')
         $('#sugarLimit').animate({height: heightLimit +'%'});
 
         $('#plainDrink').animate({height: heightPlain +'%'});
-        $('#plainDrink').animate({borderTop: '2px dashed black'});
+        $('#plainDrink').css('borderTop', '2px dashed black');
         $('#sugarGrammsPlain').text(values[parseInt(this.choicePlain)] + 'g of sugar from milk');
 
 
         $('#flavoredDrink').animate({height: heightFlavored + '%'});
-        $('#flavoredDrink').animate({borderTop: '2px dashed black'});
+        $('#flavoredDrink').css('borderTop', '2px dashed black');
         $('#sugarGrammsFlavored').text(values[parseInt(this.choiceFlavored)] + 'g of sugar total, partly from milk, partly free sugars');
 
 
