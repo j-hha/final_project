@@ -37,6 +37,8 @@
     <script src="js/directives/add-data.js" charset="utf-8"></script>
     <script src="js/controllers/health.js" charset="utf-8"></script>
     <script src="js/directives/health.js" charset="utf-8"></script>
+    <script src="js/controllers/finances.js" charset="utf-8"></script>
+    <script src="js/directives/finances.js" charset="utf-8"></script>
     <!-- STYLES -->
     <link rel="stylesheet" href="/css/main.css">
   </head>
@@ -53,7 +55,7 @@
             <i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i>
             <span>health</span>
         </span>
-        <span>
+        <span ng-click="navigate(mainNavigation, 'finances')">
           <i class="fa fa-money fa-2x" aria-hidden="true"></i>
           <span>fincances</span>
         </span>

@@ -1,0 +1,15 @@
+<article class="finance-article">
+  <h2>Am I paying too much?</h2>
+  <table>
+    <tr>
+      <th>Beverage</th>
+      <th>Your Average</th>
+      <th>SCAA Index Price (USA)</th>
+    </tr>
+    <tr ng-repeat="item in finCtrl.averagePrices">
+      <td>{{item.beverage}}</td>
+      <td>{{item.userPrice | currency}}</td>
+      <td>{{item.indexPrice[0] | currency}} - {{item.indexPrice[1] | currency}}</td>
+    </tr>
+  </table>
+</article>

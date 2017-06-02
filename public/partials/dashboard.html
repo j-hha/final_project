@@ -10,7 +10,10 @@
     <all-data ng-if="dashboardCtrl.dashboardNavigation.reviewData"></all-data>
     <faq ng-if="dashboardCtrl.dashboardNavigation.faq"></faq>
   </article>
-  <article class="dashboard-article">
+  <article class="dashboard-article" ng-if="mainNavigation.health">
     <health ng-if="mainNavigation.health"></health>
+  </article>
+  <article class="dashboard-article" ng-if="mainNavigation.finances">
+    <finances ng-if="mainNavigation.finances"></finances>
   </article>
 </section>
