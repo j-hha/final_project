@@ -6,7 +6,7 @@
 
 * {
   box-sizing: border-box;
-  border: 1px dotted black;
+  /*border: 1px dotted black;*/
 }
 
 body {
@@ -756,7 +756,10 @@ canvas {
 
 #sugarGraph img {
   max-width: 100%;
-  width: 100%;
+  background: -webkit-linear-gradient(rgba(67,165,207,.1), transparent, transparent, transparent);
+  background: -o-linear-gradient(rgba(67,165,207,.1), transparent, transparent, transparent);
+  background: -moz-linear-gradient(rgba(67,165,207,.1), transparent, transparent, transparent);
+  background: linear-gradient(rgba(67,165,207,.1), transparent, transparent, transparent);
 }
 
 .sugarGraphContent {
