@@ -1,12 +1,6 @@
 angular.module('CoffeeApp')
-.controller('dashboardController', ['$scope', '$http', function($scope, $http) {
+.controller('dashboardController', ['$scope', function($scope) {
 
-  this.dashboardNavigation = {
-    addData: true,
-    reviewData: false,
-    editProfil: false,
-    faq: false
-  };
-
+  console.log('Getting users data now:');
   $scope.getPurchases();
 }]);

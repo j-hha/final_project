@@ -12,4 +12,40 @@
       <td>{{item.indexPrice[0] | currency}} - {{item.indexPrice[1] | currency}}</td>
     </tr>
   </table>
+  <p ng-click="finCtrl.comparePrices()">this</p>
+    <section class="chartContainer financeContent">
+      <canvas id="bubbleChart"></canvas>
+    </section>
 </article>
+<table>
+  <tr>
+    <th>type of purchase</th>
+    <th>time frame</th>
+    <th># of purchases</th>
+    <th>average price paid</th>
+  </tr>
+  <tr>
+    <td>by cup</td>
+    <td>past month</td>
+    <td>{{finCtrl.purchaseStats.past_month.by_cup.count}}</td>
+    <td>{{finCtrl.purchaseStats.past_month.by_cup.average_price}}</td>
+  </tr>
+  <tr>
+    <td>by cup</td>
+    <td>all time</td>
+    <td>{{finCtrl.purchaseStats.total.by_cup.count}}</td>
+    <td>{{finCtrl.purchaseStats.total.by_cup.average_price}}</td>
+  </tr>
+  <tr>
+    <td>by bag</td>
+    <td>past month</td>
+    <td>{{finCtrl.purchaseStats.past_month.by_bag.count}}</td>
+    <td>{{finCtrl.purchaseStats.past_month.by_bag.average_price}}</td>
+  </tr>
+  <tr>
+    <td>by bag</td>
+    <td>all time</td>
+    <td>{{finCtrl.purchaseStats.total.by_bag.count}}</td>
+    <td>{{finCtrl.purchaseStats.total.by_bag.average_price}}</td>
+  </tr>
+</table>

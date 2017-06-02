@@ -1,19 +1,15 @@
 <section class="single">
   <aside id="profile-options" ng-if="mainNavigation.dashboard">
-    <span class="profile-options-labels" ng-click="navigate(dashboardCtrl.dashboardNavigation, 'addData')">add coffee data</span>
-    <span class="profile-options-labels" ng-click="navigate(dashboardCtrl.dashboardNavigation, 'reviewData')">my coffee data</span>
-    <span class="profile-options-labels" ng-click="navigate(dashboardCtrl.dashboardNavigation, 'faq')">FAQ</span>
-    <span class="profile-options-labels" ng-click="navigate(dashboardCtrl.dashboardNavigation, 'editProfil')">my account</span>
+    <span class="profile-options-labels" ng-click="navigate(dashboardNavigation, 'addData')">add coffee data</span>
+    <span class="profile-options-labels" ng-click="navigate(dashboardNavigation, 'reviewData')">my coffee data</span>
+    <span class="profile-options-labels" ng-click="navigate(dashboardNavigation, 'faq')">FAQ</span>
+    <span class="profile-options-labels" ng-click="navigate(dashboardNavigation, 'editProfil')">my account</span>
   </aside>
   <article class="dashboard-article" ng-if="mainNavigation.dashboard">
-    <add-data ng-if="dashboardCtrl.dashboardNavigation.addData"></add-data>
-    <all-data ng-if="dashboardCtrl.dashboardNavigation.reviewData"></all-data>
-    <faq ng-if="dashboardCtrl.dashboardNavigation.faq"></faq>
+    <add-data ng-if="dashboardNavigation.addData"></add-data>
+    <all-data ng-if="dashboardNavigation.reviewData"></all-data>
+    <faq ng-if="dashboardNavigation.faq"></faq>
   </article>
-  <article class="dashboard-article" ng-if="mainNavigation.health">
     <health ng-if="mainNavigation.health"></health>
-  </article>
-  <article class="dashboard-article" ng-if="mainNavigation.finances">
     <finances ng-if="mainNavigation.finances"></finances>
-  </article>
 </section>

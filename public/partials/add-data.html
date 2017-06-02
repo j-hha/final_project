@@ -18,7 +18,7 @@
         </select>
         <br>
         <label for="datePurchaseAndServing">date:</label>
-        <input id="datePurchaseAndServing" type="date" ng-model="newPurchase.date">
+        <input id="datePurchaseAndServing" type="date" ng-model="newPurchase.date" required>
         <br>
         <label for="disposable_cup">disposable cup</label>
         <input type="checkbox" ng-model="newServing.disposable_cup">
@@ -50,7 +50,7 @@
         <input id="price" type="number" ng-model="newPurchase.price" min="0" step="0.01" required>
         <br>
         <label for="brand">brand:</label>
-        <input type="text" ng-model="newPurchase.brand" placeholder="brand">
+        <input type="text" ng-model="newPurchase.brand" placeholder="brand" required>
         <br>
         <label for="rating">rating (0-5):</label>
         <input type="number" ng-model="newPurchase.rating" min="0" max="5">
@@ -76,7 +76,7 @@
         </select>
         <br>
         <label for="dateServing">date:</label>
-        <input id="dateServing" type="date" ng-model="newServing.date">
+        <input id="dateServing" type="date" ng-model="newServing.date" required>
         <br>
         <label for="purchase">from bag</label>
         <select id="purchase" name="purchase_id" ng-model="newServing.purchase_id" required>

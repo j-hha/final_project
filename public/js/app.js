@@ -182,7 +182,6 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
           this.closeModal('log-in-modal');
           $rootScope.checkUser();
           $location.path('/my-dashboard');
-          $scope.getPurchases();
         } else if (response.data.status === 401) {
           $rootScope.checkUser();
           loginData.username = '';
@@ -210,10 +209,16 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     localStorage.clear('token');
     localStorage.clear('username');
     localStorage.clear('id');
-    localStorage.clear('servings');
-    localStorage.clear('purchases');
-    $rootScope.checkUser();
+    $scope.coffeeData = {
+      allPurchases: [],
+      byBag: [],
+      byCup: [],
+      allServings: [],
+    };
+    // localStorage.clear('servings');
+    // localStorage.clear('purchases');
     location.reload();
+    $rootScope.checkUser();
   };
   // log out functionality end -------------------------------------------------
 
@@ -317,12 +322,20 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 
   // ----------- navigation logic -----------------
 
+
   $scope.mainNavigation = {
-    dashboard: true,
-    health: false,
-    finances: false,
-    environment: false,
-    society: false
+      dashboard: true,
+      health: false,
+      finances: false,
+      environment: false,
+      society: false
+    };
+
+  $scope.dashboardNavigation = {
+    addData: true,
+    reviewData: false,
+    editProfil: false,
+    faq: false
   };
 
   $scope.navigate = function(navigation, category) {

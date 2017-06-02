@@ -57,9 +57,9 @@ angular.module('CoffeeApp')
   };
 
   this.createConsumptionGraph = function(dataArray, key) {
-    $('.health-article').eq(0).animate({height: '87vh'});
+    $('.health-article').eq(0).animate({height: '100%'});
     $('.health-article').eq(0).animate({visibility: 'visibile'});
-    $('.chartContainer').eq(0).animate({height: '40vh'});
+    $('.chartContainer').eq(0).animate({height: '75vh'});
 
     this.parseData(dataArray, key);
     ctx = document.getElementById("coffeeConsumptionGraph");
@@ -76,6 +76,7 @@ angular.module('CoffeeApp')
         labels: cleanLabels
       },
       options: {
+        maxBarThickness: 10,
         maintainAspectRatio: false,
           scales: {
               yAxes: [{
@@ -101,9 +102,9 @@ angular.module('CoffeeApp')
   };
 
   this.createCaffeineGraph = function(dataArray, key) {
-    $('.health-article').eq(1).animate({height: '87vh'});
+    $('.health-article').eq(1).animate({height: '100%'});
     $('.healthContent').eq(1).css('visibility', 'visible');
-    $('.chartContainer').eq(1).animate({height: '40vh'});
+    $('.chartContainer').eq(1).animate({height: '75vh'});
     this.parseData(dataArray, key);
     ctx = document.getElementById("caffeineIntakeGraph");
     var mixedChart = new Chart(ctx, {
@@ -191,12 +192,12 @@ angular.module('CoffeeApp')
 
         $('#plainDrink').animate({height: heightPlain +'%'});
         $('#plainDrink').css('borderTop', '2px dashed black');
-        $('#sugarGrammsPlain').text(values[parseInt(this.choicePlain)] + 'g of sugar from milk');
+        $('#sugarGrammsPlain').text('Chosen plain drink: ' +values[parseInt(this.choicePlain)] + 'g of sugar from milk');
 
 
         $('#flavoredDrink').animate({height: heightFlavored + '%'});
         $('#flavoredDrink').css('borderTop', '2px dashed black');
-        $('#sugarGrammsFlavored').text(values[parseInt(this.choiceFlavored)] + 'g of sugar total, partly from milk, partly free sugars');
+        $('#sugarGrammsFlavored').text('Chosen flavored drink: ' + values[parseInt(this.choiceFlavored)] + 'g of sugar total, partly from milk, partly free sugars');
 
 
         console.log("plain, limit, flavored ", heightPlain, heightLimit, heightFlavored);

@@ -45,6 +45,7 @@ angular.module('CoffeeApp').controller('addDataController', ['$scope', '$http', 
         if (response.data.status = 201) {
           $scope.coffeeData.allServings.push(response.data.serving)
           // $localStorage.setItem('servings', JSON.stringify($scope.coffeeData.allServings));
+          $scope.navigate($scope.dashboardNavigation, 'reviewData');
         } else {
           console.log(response.data);
         }
@@ -99,6 +100,7 @@ angular.module('CoffeeApp').controller('addDataController', ['$scope', '$http', 
               if (response.data.status = 201) {
                 $scope.coffeeData.allServings.push(response.data.serving)
                 // $localStorage.setItem('servings', JSON.stringify($scope.coffeeData.allServings));
+                $scope.navigate($scope.dashboardNavigation, 'reviewData');
               } else {
                 console.log(response.data);
               }
@@ -138,6 +140,7 @@ angular.module('CoffeeApp').controller('addDataController', ['$scope', '$http', 
           $scope.coffeeData.allPurchases.push(response.data.purchase);
           $scope.coffeeData.byBag.push(response.data.purchase);
           // localStorage.setItem('purchases', JSON.stringify($scope.coffeeData.allServings));
+          $scope.navigate($scope.dashboardNavigation, 'reviewData');
           $scope.availablePurchasesbyBag();
         } else {
           console.log(response.data);

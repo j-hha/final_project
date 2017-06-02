@@ -11,7 +11,8 @@
       <th>paper cup</th>
       <th><i class="fa fa-trash-o" aria-hidden="true"></i></th>
     </tr>
-    <tr ng-repeat="serving in coffeeData.allServings | limitTo:30 track by $index">
+    <tr ng-repeat="serving in coffeeData.allServings | orderBy: 'date':true track by $index">
+      <!-- based on https://stackoverflow.com/questions/16261348/descending-order-by-date-filter-in-angularjs -->
       <td>{{serving.date}}</td>
       <td>{{serving.beverage_type}}</td>
       <td>{{serving.caffeine}}</td>
@@ -32,14 +33,16 @@
       <th>price</th>
       <th>rating</th>
       <th>fair trade</th>
+      <th>by cup</th>
       <th><i class="fa fa-trash-o" aria-hidden="true"></i></th>
     </tr>
-    <tr ng-repeat="purchase in coffeeData.allPurchases | limitTo:30 track by $index">
+    <tr ng-repeat="purchase in coffeeData.allPurchases | orderBy: 'date':true track by $index">
       <td>{{purchase.date}}</td>
       <td>{{purchase.brand}}</td>
       <td>{{purchase.price}}</td>
       <td>{{purchase.rating}}</td>
       <td>{{purchase.fair_trade}}</td>
+      <td>{{purchase.by_cup}}</td>
       <td class='delete' ng-click="allData.deletePurchase(purchase)">REMOVE</td>
     </tr>
   </table>
