@@ -34,7 +34,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   });
 }]).controller('mainCtrl', ['$rootScope', '$scope', '$routeParams', '$http', '$location', function($rootScope, $scope, $routeParams, $http, $location) {
 
-  $scope.baseUrl = 'http://localhost:3000/' /*'https://coffee-compass-api.herokuapp.com/'*/;
+  $scope.baseUrl = 'https://coffee-compass-api.herokuapp.com/' /* 'http://localhost:3000/' */;
 
   // modals logic --------------------------------------------------------------
   this.openModal = function(element) {
