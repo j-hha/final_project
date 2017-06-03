@@ -541,6 +541,34 @@ table tr:nth-of-type(even) {
   animation-duration: 1s;
 }
 
+#faq {
+  overflow: scroll;
+  background-color: white;
+  width: 80%;
+  margin: 15vh auto;
+  height: 80vh;
+  border-radius: 5px;
+  box-shadow: 3px 3px 6px rgba(0,0,0,.5);
+}
+
+#faq i {
+  float: right;
+  position: absolute;
+  top: 16vh;
+  right: 11vw;
+  font-size: 1.5em;
+  color: #aaa;
+}
+
+#faq i:hover {
+  color: #43A5CF;
+  transition: .5s;
+}
+
+#faq i:active {
+  color: #215267;
+}
+
 .modal-form {
   position: absolute;
   top: 50%;
@@ -785,6 +813,25 @@ canvas {
   border-radius: 5px;
   margin: 1vh auto;
   font-size: .7em;
+}
+
+/* ********* LIST STYLES ********* */
+
+dl {
+  width: 80%;
+  margin: auto;
+}
+
+dl dt {
+  padding: 1vh 1vw;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  margin-top: 2vh;
+}
+
+dl dd {
+  padding: 2vh 1vw;
+  text-align: justify;
 }
 
 /* ********* RESPONSIVE STYLES ********* */

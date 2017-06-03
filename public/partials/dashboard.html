@@ -2,13 +2,11 @@
   <aside id="profile-options" ng-if="mainNavigation.dashboard">
     <span class="profile-options-labels" ng-click="navigate(dashboardNavigation, 'addData')">add coffee data</span>
     <span class="profile-options-labels" ng-click="navigate(dashboardNavigation, 'reviewData')">my coffee data</span>
-    <span class="profile-options-labels" ng-click="navigate(dashboardNavigation, 'faq')">FAQ</span>
     <span class="profile-options-labels" ng-click="navigate(dashboardNavigation, 'editProfil')">my account</span>
   </aside>
   <article class="dashboard-article" ng-if="mainNavigation.dashboard">
     <add-data ng-if="dashboardNavigation.addData"></add-data>
     <all-data ng-if="dashboardNavigation.reviewData"></all-data>
-    <faq ng-if="dashboardNavigation.faq"></faq>
   </article>
     <health ng-if="mainNavigation.health"></health>
     <finances ng-if="mainNavigation.finances"></finances>

@@ -3,4 +3,5 @@ angular.module('CoffeeApp')
 
   console.log('Getting users data now:');
   $scope.getPurchases();
+
 }]);

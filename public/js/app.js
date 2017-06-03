@@ -34,10 +34,14 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   });
 }]).controller('mainCtrl', ['$rootScope', '$scope', '$routeParams', '$http', '$location', function($rootScope, $scope, $routeParams, $http, $location) {
 
-  $scope.baseUrl = 'https://coffee-compass-api.herokuapp.com/' /* 'http://localhost:3000/' */;
+  $scope.baseUrl = 'https://coffee-compass-api.herokuapp.com/'
+  // $scope.baseUrl = 'http://localhost:3000/';
 
   // modals logic --------------------------------------------------------------
   this.openModal = function(element) {
+    if (element !== 'faq') {
+      $('#faq').hide()
+    }
     $('.modal-form').hide()
     $('.modal').show()
     $('#' + element).show();
@@ -364,5 +368,9 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         console.log(error);
       });
   };
+
+  // $scope.displayGraphs = function() {
+  //   $rootScope.$broadcast('getHealthGraphs', {message: 'show graphs pls'});
+  // };
 
 }]);

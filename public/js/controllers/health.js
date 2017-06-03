@@ -160,8 +160,6 @@ angular.module('CoffeeApp')
         $('.health-article').eq(2).animate({height: '87vh'});
         $('#sugarGraph').css('display', 'flex');
         $('#sugarForm').css('display', 'flex');
-
-
       };
 
       this.getValuesForUserInput = function() {
@@ -202,6 +200,4 @@ angular.module('CoffeeApp')
 
         console.log("plain, limit, flavored ", heightPlain, heightLimit, heightFlavored);
       };
-
-
 }]);
