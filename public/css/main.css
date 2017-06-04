@@ -209,18 +209,23 @@ article {
 
 #promt {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-#promt h1 {
-  margin: 40vh auto;
-  display: inline-block;
+#promt button {
   border: 1px solid #43A5CF;
   border-radius: 3px;
   padding: 1vh 1vw;
   color: #43A5CF;
+  background-color: transparent;
+  font-family: 'Lato', sans-serif;
+  font-size: 2vmax;
 }
 
-#promt h1:hover {
+#promt button:hover {
   background-color: #43A5CF;
   color: white;
   transition-duration: .4s;
@@ -228,7 +233,7 @@ article {
   box-shadow: 2px 2px 4px rgba(0,0,0,.3);
 }
 
-#promt h1:active {
+#promt button:active {
   background-color: #215267;
   border: 1px solid #215267;
 }
