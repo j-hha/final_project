@@ -37,6 +37,12 @@ they drink as well as how their consumer choices impact their own lives (health
 - API written in Ruby on Rails
 - Users can save their information in database (Postgresql)
 - authentication / authorization via JSON Webtoken
+- third party api: USDA Food Composition Database (https://ndb.nal.usda.gov/ndb/)
+- retrieved nutritional data for several selected ingredients for coffee beverages
+ (black coffee, expresso, whole milk, instant coffee) and saved it to table in own database
+- set up rake task to check once a day if the content was updated (the largest
+  time span heroku allows, otherwise I would have checked for changes to the data once a month)
+- when user selects a beverage, nutritional data is calculated based on USDA Food Composition data
 
 **CURRENT STATE**
 - still work in progress!
