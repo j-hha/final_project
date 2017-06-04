@@ -177,6 +177,25 @@ article {
   text-align: center;
 }
 
+/* ********* INFO ********* */
+
+#info {
+  font-size: 2vmax;
+  text-align: justify;
+  padding: 5vh 5vw;
+}
+
+#info blockquote {
+  text-align: center;
+  margin-bottom: 5vmax;
+  text-transform: uppercase;
+}
+
+#info small {
+  text-transform: none;
+  color: grey;
+}
+
 /* ********* PROMPT ********* */
 
 #promt {
@@ -239,14 +258,15 @@ article {
 #cupGraphic {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
 }
 
-#cupGraphic > div {
-  flex: 1;
+#cupGraphicContainer {
   flex-flow: row nowrap;
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
+  height: 80%;
 }
 
 #ladyLiberty {
@@ -329,15 +349,14 @@ article {
 
 #paper-cup-stat {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 2em;
+  justify-content: flex-start;
 }
 
-#paper-cup-stat small {
+/*#paper-cup-stat small {
   font-size: .5em;
-}
+}*/
 
 /* ********* caffeine intake animation ********* */
 

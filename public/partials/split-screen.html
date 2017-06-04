@@ -1,13 +1,5 @@
 
 <section class="statistics">
-  <article id="caffeine-limit">
-      <div class="cup-holder">
-        <img ng-repeat="n in ctrl.range | limitTo: ctrl.numOfCupsPerDay" class="coffee-pot" ng-src="../../barista-icon-set/SVG/barista-icons_cup-of-coffee.svg" alt="a cup of coffee">
-      </div>
-      <p><small>{{ctrl.limitMsg}}</small></p>
-  </article>
-</section>
-<section class="user-data">
   <article id="caffeine-limit-answer-field">
     <h2>How much coffee is safe?</h2>
     <p>
@@ -16,16 +8,23 @@
     </p>
   </article>
 </section>
+<section class="user-data">
+  <article id="caffeine-limit">
+      <div class="cup-holder">
+        <img ng-repeat="n in ctrl.range | limitTo: ctrl.numOfCupsPerDay" class="coffee-pot" ng-src="../../barista-icon-set/SVG/barista-icons_cup-of-coffee.svg" alt="a cup of coffee">
+      </div>
+      <p><small>{{ctrl.limitMsg}}</small></p>
+  </article>
+</section>
 
 <section class="statistics">
   <article id="paper-cup-stat">
-    <blockquote>Globally, at least 58 billion throwaway cups are used each year, involving more than a million tonnes of paper.
-      <p>
-        <a href="http://www.environmentalpaper.eu/day-of-action-on-throwaway-cups/">
-          <small>Environmental Paper Network</small>
-        </a>
-      </p>
-    </blockquote>
+    <h2>How much paper cup waste am I producing each year?</h2>
+    <form class="one-line-form" ng-submit="ctrl.getNumOfPaperCupsPerYear()">
+      <label for="paper-cups-form"># coffee-to-go / week:</label>
+      <input ng-model="ctrl.numOfPaperCups" id="paper-cups-form" min="0" max="60" type="number">
+      <input type="submit" class="submit">
+    </form>
   </article>
 </section>
 <section class="user-data">
@@ -36,14 +35,9 @@
           <!-- <img src="../img/red-usa-statue-of-liberty-by-Vexels.svg" alt=""> -->
         </div>
         <div id="paperCupTower">
-          <span id="paperCupTowerLabel">{{ctrl.paperCupTowerInFt}}</span>
+          <span id="paperCupTowerLabel">{{ctrl.paperCupTowerInFt}}*</span>
         </div>
       </div>
-      <form class="one-line-form" ng-submit="ctrl.getNumOfPaperCupsPerYear()">
-        <label for="paper-cups-form">coffee-to-go / week:</label>
-        <input ng-model="ctrl.numOfPaperCups" id="paper-cups-form" min="0" max="60" type="number">
-        <input type="submit" class="submit">
-      </form>
-      <h2>Your annual paper cup tower</h2>
+      <p>*Height of you annual paper cup tower (calculated for 8 fl oz cups).</p>
   </article>
 </section>
