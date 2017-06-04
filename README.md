@@ -17,6 +17,9 @@ Frontend: HTML, CSS, JavaScript, AngularJS, jQuery, NodeJS, Express, ChartJS
 Backend: Ruby on Rails
 Database: Postgresql
 
+![Screenshot Coffee Compass](public/img/screenshot_coffee_compass.png "Screenshot Coffee Compass")
+
+
 ## APPROACH TAKEN
 
 **RATIONAL**
